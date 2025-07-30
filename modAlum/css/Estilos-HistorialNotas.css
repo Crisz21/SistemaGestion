@@ -1,0 +1,84 @@
+.bodyHistorialNot{
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 20vh);
+    margin: 0;
+    padding: 0;
+    background-color: #ffbeefe0;
+}
+
+.titulo1{
+    text-align: left;
+    font-size: 60px;
+    margin: 0.5em;
+}
+
+#ContenedorPrincipal{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 80%;   
+    margin: 0em auto;   
+}
+#ContenedorPrincipal > *{
+  
+    height: 4em;
+    width: auto;
+    margin: 1em;
+    gap: 1em;
+    background-color: white;
+    border: 1px solid black;
+    text-align: left;
+    padding: 1em;
+    font-size: 20px;
+    
+}
+
+.grilla-Examenes{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 70vw;
+    margin: 2em auto;
+    text-align: center;
+    border: 1px solid black;
+    background-color: white;
+}
+
+.grilla-Examenes table{
+    margin-top: 0;
+    align-items: center;
+    min-height: 100%;
+    min-width: 100%;
+    color: black;
+    font-size: 20px;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+.grilla-Examenes table thead th{
+    font-size: 28px;
+    padding: 20px 15px;
+    font-weight: 400;
+    border-right: solid 1px black;
+    border-bottom: solid 1px black;
+}
+
+td{
+    padding: 15px;
+    border-bottom: solid 1px black;
+    border-right: solid 1px black;
+}
+
+#tExamen tr:hover{
+    background-color: rgba(56, 82, 250, 1);
+    color: white;
+    cursor: pointer;
+}
+
+span{
+    font-size: 25px;
+    color:black;
+}

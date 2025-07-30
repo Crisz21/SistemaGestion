@@ -1,0 +1,153 @@
+/* Cuerpo y configuraciones generales */
+body {
+    font-family: "Segoe UI", sans-serif;
+    background-color: #F1D5D5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Título principal */
+h1 {
+    text-align: center;
+    color: #4CAF50;
+    margin-top: 20px;
+}
+
+/* Mensajes de éxito y error */
+.error {
+    color: white;
+    background-color: #f44336;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 6px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.success {
+    color: white;
+    background-color: #4CAF50;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 6px;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Formulario de selección */
+form {
+    width: 80%;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo de las etiquetas y campos de entrada */
+form div {
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+form select {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+}
+
+/* Efecto cuando los campos están en foco */
+form select:focus {
+    outline: none;
+    border-color: #4CAF50;
+    background-color: #fff;
+}
+
+/* Botón de asignación */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Estilo de la tabla */
+table {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 14px;
+}
+
+/* Estilo de las celdas de la tabla */
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Estilo para las cabeceras de la tabla */
+th {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Estilo para las filas alternadas */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Efecto de hover sobre las filas de la tabla */
+tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+/* Contenedor de la tabla */
+table tbody tr:hover {
+    background-color: rgba(56, 82, 250, 0.9);
+    color: white;
+}
+
+/* Título de los cursos asignados */
+h2 {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 28px;
+    color: #4CAF50;
+}
+
+/* Línea divisoria */
+hr {
+    margin: 30px 0;
+    border: 0;
+    border-top: 1px solid #ddd;
+}

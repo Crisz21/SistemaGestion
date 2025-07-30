@@ -1,0 +1,50 @@
+
+
+/* Quitar subrayado en los botones y enlaces */
+button, a {
+    text-decoration: none;  /* Elimina el subrayado de los enlaces dentro de los botones */
+}
+
+/* Botones de Alta y Asignación */
+#contenedor-botones-admin button {
+    width: 18vw;  /* Reducido para que quepan mejor */
+    height: 18vh; /* Reducido para que quepan mejor */
+    border-radius: 80px;
+    border: 3px solid black;
+    font-size: 18px; /* Tamaño de fuente reducido */
+}
+
+/* Botones de Alta y Asignación (hover) */
+#contenedor-botones-admin button:hover {
+    border-radius: 80px;
+    background-color: rgba(56, 82, 250, 1);
+    color: white;
+    cursor: pointer;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.658);
+}
+
+/* Fila de botones de Alta y Asignación */
+#fila-botones-admin {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 5vh;
+    gap: 130px;
+}
+
+/* Estilos para los íconos y texto de los botones */
+button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+button img {
+    width: 4vw; /* Reducido */
+    height: 6vh; /* Reducido */
+    margin-bottom: 8px; /* Reducido para que el texto no quede tan alejado */
+}
+
+button span {
+    font-size: 24px; /* Tamaño de fuente reducido */
+}

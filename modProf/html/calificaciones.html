@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar y Ver Calificaciones</title>
+    <link rel="stylesheet" href="../css/Estilo.css"> <link rel="stylesheet" href="../css/calificaciones.css"> </head>
+<body>
+   
+    <h1>Registrar y Ver Calificaciones</h1>
+
+    <form id="formBuscarAlumnos">
+        <div>
+            <label for="idCarrera">Seleccionar Carrera:</label>
+            <select name="idCarrera" id="idCarrera" required>
+                <option value="" disabled selected>Selecciona una carrera</option>
+                </select>
+        </div>
+
+        <div>
+            <label for="anio">Seleccionar Año:</label>
+            <select name="anio" id="anio" required>
+                <option value="" disabled selected>Selecciona un año</option>
+                <option value="1er año">1er año</option>
+                <option value="2do año">2do año</option>
+                <option value="3er año">3er año</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="division">Seleccionar División:</label>
+            <select name="division" id="division" required>
+                <option value="" disabled selected>Selecciona una división</option>
+                <option value="1ro">1ro</option>
+                <option value="2do">2do</option>
+                <option value="3ro">3ro</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="idMateria">Seleccionar Materia:</label>
+            <select name="idMateria" id="idMateria" required>
+                <option value="" disabled selected>Selecciona una materia</option>
+                </select>
+        </div>
+
+        <button type="submit" id="buscarAlumnosBtn">Buscar Alumnos</button>
+    </form>
+
+    <hr>
+
+    <h2>Calificaciones del Curso Seleccionado</h2>
+    <form id="formCalificaciones">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>DNI</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Calificación 1</th>
+                    <th>Recuperatorio 1</th>
+                    <th>Calificación 2</th>
+                    <th>Recuperatorio 2</th>
+                    <th>Examen Final</th>
+                </tr>
+            </thead>
+            <tbody id="tablaCalificacionesBody">
+                </tbody>
+        </table>
+
+        <input type="hidden" name="idCurso" id="hiddenIdCurso">
+        <input type="hidden" name="idCarrera" id="hiddenIdCarrera">
+        <input type="hidden" name="idMateria" id="hiddenIdMateria">
+
+        <button type="submit" id="guardarCalificacionesBtn">Guardar Calificaciones</button>
+    </form>
+
+    <script src="../js/calificaciones.js"></script> </body>
+</html>

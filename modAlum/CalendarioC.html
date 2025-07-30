@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<title>Calendario</title>
+	<link rel="stylesheet" href="./css/CalendarioC.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+</head>
+<body>
+	<!-- adetro de la etiqueta header, js dibuja el header de todas las paginas-->
+    <header id="header"></header>
+    <h1 id="TituloCalAcadem">Calendario Academico</h1>
+	
+	<div class="TablaEventos">
+		<div id="btnTabla">
+			
+		<button id="VerCal">Ver Calendario</button>
+		<button id="AgregarEvento">Agregar <br> eventos</button>
+		</div>
+		<div id="bodyTabla">
+			<h1>Eventos Proximos</h1>
+			<ul id="ListaEventos">
+				<h1 id="vacio">No hay eventos Proximos</h1>
+				
+			</ul>
+		</div>
+		
+	</div>
+	
+	
+	<div class="calendario">
+		<div class="cabecera">
+			<button id="btn-antes">Anterior</button>
+			<span id="mes-año"></span>
+			<button id="btn-despues">Siguiente</button>
+		</div>
+		<table id="calendario-tabla">
+			<thead>
+				<tr>
+					<th>Domingo</th>
+					<th>Lunes</th>
+					<th>Martes</th>
+					<th>Miércoles</th>
+					<th>Jueves</th>
+					<th>Viernes</th>
+					<th>Sábado</th>
+				</tr>
+			</thead>
+			<tbody id="calendario-cuerpo">
+			</tbody>
+		</table>
+		
+	</div>	
+		<!-- dentro del contenedorMenus js dibuja el menu que corresponde a cada usuario que ingresa segun el rol que tenga  -->
+	<div class="ContenedorMenus"></div>	
+    <script src="/scripts/btnHeader.js"></script>
+    <script src="/scripts/header2.js"></script>
+	<script src="./scripts/CalendarioC.js"></script>
+</body>
+</html>

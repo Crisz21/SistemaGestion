@@ -1,0 +1,202 @@
+/* Cuerpo y configuraciones generales */
+body {
+    font-family: "Segoe UI", sans-serif;
+    background-color: #F1D5D5;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor general del formulario sin el recuadro blanco */
+.form-container {
+    width: 80%;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: none;  /* Eliminamos la sombra */
+    background-color: transparent;  /* Hacemos el fondo transparente */
+}
+
+/* Estilo de los encabezados */
+h1, h2 {
+    color: #4CAF50;
+    text-align: center;
+}
+
+/* Estilo para los títulos dentro de la sección */
+.titulo {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    margin-left: 35%;
+    font-size: 60px;
+    color: #4CAF50;
+}
+
+/* Alineación de los campos y labels */
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+/* Estilo de los inputs */
+.input-item {
+    width: 100%;
+    max-width: 380px;
+    padding: 8px;
+}
+
+.input-item label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Estilo de los inputs y selects */
+.input-item input,
+.input-item select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: #f9f9f9;
+}
+
+/* Efecto al hacer foco en los inputs */
+.input-item input:focus,
+.input-item select:focus {
+    border-color: #4CAF50;
+    outline: none;
+    background-color: #fff;
+}
+
+/* Estilo de los botones */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 20px;
+    align-self: flex-end;
+    transition: background-color 0.3s;
+}
+
+/* Efecto al pasar el mouse sobre el botón */
+button:hover {
+    background-color: #45a049;
+}
+
+/* Estilo para los formularios de entrada */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Estilo de la tabla y elementos relacionados */
+.grilla {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 70vw;
+    margin: 0 auto;
+    text-align: center;
+    border: 1px solid black;
+    background-color: transparent; /* Fondo transparente */
+}
+
+/* Estilos para la tabla dentro de la grilla */
+.grilla table {
+    margin-top: 0;
+    align-items: center;
+    min-height: 100%;
+    min-width: 100%;
+    color: black;
+    font-size: 20px;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+.grilla table thead th {
+    font-size: 35px;
+    padding: 20px 15px;
+    font-weight: 400;
+    border-right: solid 1px black;
+    border-bottom: solid 1px black;
+}
+
+.grilla table td {
+    padding: 15px;
+    border-bottom: solid 1px black;
+    border-right: solid 1px black;
+}
+
+.grilla table #datos tr:hover {
+    background-color: rgba(56, 82, 250, 1);
+    color: white;
+    cursor: pointer;
+}
+
+/* Estilo para los mensajes de error y éxito */
+.error-message, .success-message {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.error-message {
+    background-color: #f44336;
+    color: white;
+}
+
+.success-message {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Estilo de las tablas con efectos de hover */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 16px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Estilo para los separadores entre formularios */
+hr {
+    margin: 30px 0;
+    border: 0;
+    border-top: 1px solid #ddd;
+}

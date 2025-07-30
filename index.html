@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/estilosLogin.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>  
+    
+</head>
+    <body>
+        <header id="header"></header>
+        <div id="bodyLobby">
+                    <form id="login-form">
+                            <h1 id="msjBienvenida">Bienvenid@ <br>Introduce tus datos</h1>
+                            <div id="cont-Login">
+                                <input type="text" id="nomUsuario" name="usuario" required spellcheck="false">
+                                <label id="nomUs">Usuario o E-mail</label>
+                                <div id="Mensaje">
+                                    <h1>Usuario o contraseña incorrectos</h1>
+                            </div>
+                            </div>
+                            
+                                <div id="cont-Login2">
+                                    <input type="password" id="contraseña" name="contraseña" required spellcheck="false">
+                                    <label id="Contra">Contraseña</label>
+                                </div>
+                            <input type="submit" id="login-btn" value="Iniciar Sesion">
+                            <a href="#"> ¿Olvidaste tu contraseña?</a>   
+                    </form>
+                    <div id="respuesta"></div> 
+        <script src="./scripts/header2.js"></script>
+         <script src="./scripts/Login.js"></script>
+         <script src="./scripts/btnHeader.js"></script>
+    </body>
+</html>
+

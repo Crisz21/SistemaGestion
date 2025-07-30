@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Información del Profesor</title>
+    <link rel="stylesheet" href="../css/formulario_profesor.css">
+    <script src="../js/formulario_profesor.js" defer></script> <!-- Incluir archivo JS -->
+</head>
+<body>
+    <div class="form-container">
+        <h1>Información del Profesor</h1>
+
+        <!-- Formulario para ver los datos -->
+        <form id="formProfesor">
+            <!-- Usuario y Contraseña -->
+            <div class="input-group horizontal">
+                <div class="input-item">
+                    <label for="idUsuario">ID de Usuario</label>
+                    <input type="text" id="idUsuario" name="idUsuario" readonly>
+                </div>
+                <div class="input-item">
+                    <label for="correo">Correo</label>
+                    <input type="email" id="correo" name="correo" readonly>
+                </div>
+            </div>
+
+            <!-- Nombre y Apellido -->
+            <div class="input-group horizontal">
+                <div class="input-item">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" readonly>
+                </div>
+                <div class="input-item">
+                    <label for="apellido">Apellido</label>
+                    <input type="text" id="apellido" name="apellido" readonly>
+                </div>
+            </div>
+
+            <!-- Teléfono y Dirección -->
+            <div class="input-group horizontal">
+                <div class="input-item">
+                    <label for="telefono">Teléfono</label>
+                    <input type="text" id="telefono" name="telefono" readonly>
+                </div>
+                <div class="input-item">
+                    <label for="direccion">Dirección</label>
+                    <input type="text" id="direccion" name="direccion" readonly>
+                </div>
+            </div>
+
+            <!-- Piso, Dpto y Localidad -->
+            <div class="input-group horizontal">
+                <div class="input-item">
+                    <label for="piso">Piso</label>
+                    <input type="text" id="piso" name="piso" readonly>
+                </div>
+                <div class="input-item">
+                    <label for="dpto">Departamento</label>
+                    <input type="text" id="dpto" name="dpto" readonly>
+                </div>
+            </div>
+
+            <!-- Código Postal y Localidad -->
+            <div class="input-group horizontal">
+                <div class="input-item">
+                    <label for="codigoPostal">Código Postal</label>
+                    <input type="text" id="codigoPostal" name="codigoPostal" readonly>
+                </div>
+                <div class="input-item">
+                    <label for="localidad">Localidad</label>
+                    <input type="text" id="localidad" name="localidad" readonly>
+                </div>
+            </div>
+
+            <!-- Provincia y Carrera -->
+            <div class="input-group horizontal">
+                <div class="input-item">
+                    <label for="provincia">Provincia</label>
+                    <input type="text" id="provincia" name="provincia" readonly>
+                </div>
+                <div class="input-item">
+                    <label for="carrera">Carrera</label>
+                    <input type="text" id="carrera" name="carrera" readonly>
+                </div>
+            </div>
+
+            <!-- Contraseña -->
+            <div class="input-group horizontal">
+                <div class="input-item">
+                    <label for="contrasena">Contraseña</label>
+                    <input type="text" id="contrasena" name="contrasena" readonly>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario Académico</title>
+    <!-- Actualizar la ruta para enlazar al archivo CSS en la carpeta css/ -->
+    <link rel="stylesheet" href="../css/calendario.css">
+</head>
+<body>
+    <h1>Calendario Académico</h1>
+
+    <div class="navegacion-mes">
+        <a href="#" id="mesAnterior"><< Mes Anterior</a> | 
+        <a href="#" id="mesSiguiente">Mes Siguiente >></a>
+    </div>
+
+    <div class="calendar-container">
+        <div id="calendario" class="calendar"></div>
+    </div>
+
+    <!-- Formulario de agregar/editar evento -->
+    <div class="formulario-evento">
+        <h2>Agregar/Editar Evento</h2>
+        <form id="formularioEvento">
+            <input type="hidden" id="evento_id">
+            <label for="titulo">Título:</label>
+            <input type="text" id="titulo" name="titulo" required>
+            <label for="descripcion">Descripción:</label>
+            <textarea id="descripcion" name="descripcion"></textarea>
+            <label for="fecha">Fecha:</label>
+            <input type="date" id="fecha" name="fecha" required>
+            <label for="hora">Hora:</label>
+            <input type="time" id="hora" name="hora" required>
+            <button type="submit">Guardar Evento</button>
+            <button type="button" id="eliminarEvento" style="background-color: red;">Eliminar Evento</button>
+        </form>
+        <p id="mensaje"></p>
+    </div>
+
+    <!-- Actualizar la ruta para enlazar al archivo JS en la carpeta js/ -->
+    <script src="../js/calendario.js"></script>
+</body>
+</html>

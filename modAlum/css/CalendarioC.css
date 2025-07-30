@@ -1,0 +1,180 @@
+body{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: calc(100vh - 20vh);
+    margin: 0;
+    padding: 0;
+    background-color: #ffbeefe0;
+}
+button{
+    padding: 10px;
+}
+#TituloCalAcadem{
+    margin-top: 30px;
+    margin-left:20px ;
+    margin-bottom: 30px;
+    font-size: 48px;
+}
+.calendario {
+    display: none;
+    position: relative;
+    margin-top: 2em;
+    margin-left: 15em;
+	width: 1200px;
+	border: 1px solid #ddd;
+	padding: 20px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f0f0f0;
+    border: solid 1px black;
+}
+
+.cabecera {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+    
+}
+
+#mes-año {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+#calendario-tabla {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+#calendario-tabla th, #calendario-tabla td {
+	border: 1px solid #ddd;
+	padding: 10px;
+	text-align: center;
+    
+}
+#calendario-tabla td:hover{
+    background-color: aqua;
+}
+
+#calendario-tabla th {
+	background-color: rgb(8, 179, 179);
+}
+
+.ContenedorMenus {
+    
+   display: none;
+  
+}
+
+.AgregarEventoProf{
+    
+    width: 900px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #f0f0f0;
+    padding-top: 20px;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-bottom: 20px;
+    gap: 10px;
+    border: 1px solid black;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 25rem;
+   
+}
+.AgregarEventoProf > h1{
+    position: relative;
+}
+#bodyMenu{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 24px;
+}
+#Descrip{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+
+#datosProf{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+
+#encabezadoEvent{
+    display: flex;
+    flex-direction: row;
+    align-content:space-around ;
+    gap: 200px;
+    padding: 10px;
+    
+    
+}
+#descripcionInput{
+    height: 200px;
+    padding: 10px;
+}
+
+
+
+.TablaEventos{
+    position: relative;
+    margin-top: 20px;
+    left: 12%;
+    transform: (-50%,-50%); 
+    display: flex;
+    flex-direction:row-reverse;
+    gap: 30px;
+    padding-bottom: 10px;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 0px 80px 15em;
+    width: 50em;
+    height: auto;
+    border: solid 1px black;
+    background-color: white;
+}
+
+#btnTabla{
+    position:relative;
+    margin-top: 10px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    gap: 10px;
+}
+#bodyTabla{
+    display: flex;
+    flex-direction: column;
+    margin-left: 80px;
+    gap:10px;
+}
+
+#fechaHora{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    justify-content: center;
+    width: auto;
+    gap:20px;
+}
+#Hora{
+    width: 30px;
+    height: 40px;
+}
+select{
+    font-size: 24px;
+    padding: 10px;
+}
+#btnCrearEvento{
+    width: 100px;
+    height: 30px;
+    margin-top: 80px;
+}

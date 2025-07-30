@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Profesor</title>
+    <link rel="stylesheet" href="../css/abm_profesor.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Registrar Profesor</h1>
+
+    <!-- Mostrar mensajes de éxito o error -->
+    <div id="responseMessage"></div>
+
+    <!-- Formulario de alta o edición de profesor -->
+    <form id="profesorForm" method="POST">
+        <input type="hidden" name="editar_id" id="editar_id">
+
+        <!-- Campos del formulario -->
+        <div>
+            <label for="idUsuario">DNI (ID):</label>
+            <input type="text" name="idUsuario" id="idUsuarioInput" required>
+        </div>
+        <div>
+            <label for="apellido">Apellido:</label>
+            <input type="text" name="apellido" id="apellido" required>
+        </div>
+        <div>
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" id="nombre" required>
+        </div>
+        <div>
+            <label for="telefono">Teléfono:</label>
+            <input type="text" name="telefono" id="telefono" required>
+        </div>
+        <div>
+            <label for="telefono2">Segundo Teléfono:</label>
+            <input type="text" name="telefono2" id="telefono2">
+        </div>
+        <div>
+            <label for="correo">Correo:</label>
+            <input type="email" name="correo" id="correo" required>
+        </div>
+        <div>
+            <label for="contrasena">Contraseña:</label>
+            <input type="text" name="contrasena" id="contrasena" required>
+        </div>
+        <div>
+            <label for="calle">Calle:</label>
+            <input type="text" name="calle" id="calle" required>
+        </div>
+        <div>
+            <label for="nroAltura">Número de Altura:</label>
+            <input type="number" name="nroAltura" id="nroAltura" required>
+        </div>
+        <div>
+            <label for="piso">Piso:</label>
+            <input type="text" name="piso" id="piso">
+        </div>
+        <div>
+            <label for="codigoPostal">Código Postal:</label>
+            <input type="number" name="codigoPostal" id="codigoPostal" required>
+        </div>
+        <div>
+            <label for="dpto">Departamento:</label>
+            <input type="text" name="dpto" id="dpto">
+        </div>
+        <div>
+            <label for="localidad">Localidad:</label>
+            <input type="text" name="localidad" id="localidad" required>
+        </div>
+        <div>
+            <label for="provincia">Provincia:</label>
+            <select name="provincia" id="provincia" required>
+                <option value="">Seleccionar Provincia</option>
+                <option value="Buenos Aires">Buenos Aires</option>
+                <option value="Catamarca">Catamarca</option>
+                <option value="Chaco">Chaco</option>
+                <option value="Chubut">Chubut</option>
+                <option value="CABA">CABA (Ciudad Autónoma de Buenos Aires)</option>
+                <option value="Córdoba">Córdoba</option>
+                <option value="Corrientes">Corrientes</option>
+                <option value="Entre Ríos">Entre Ríos</option>
+                <option value="Formosa">Formosa</option>
+                <option value="Jujuy">Jujuy</option>
+                <option value="La Pampa">La Pampa</option>
+                <option value="La Rioja">La Rioja</option>
+                <option value="Mendoza">Mendoza</option>
+                <option value="Misiones">Misiones</option>
+                <option value="Neuquén">Neuquén</option>
+                <option value="Río Negro">Río Negro</option>
+                <option value="Salta">Salta</option>
+                <option value="San Juan">San Juan</option>
+                <option value="San Luis">San Luis</option>
+                <option value="Santa Cruz">Santa Cruz</option>
+                <option value="Santa Fe">Santa Fe</option>
+                <option value="Santiago del Estero">Santiago del Estero</option>
+                <option value="Tierra del Fuego">Tierra del Fuego</option>
+                <option value="Tucumán">Tucumán</option>
+            </select>
+        </div>
+
+        <!-- Botón de guardar -->
+        <div>
+            <button type="submit" id="guardarBtn">Guardar</button>
+        </div>
+    </form>
+
+    <hr>
+
+    <h2>Buscar Profesor</h2>
+    <form id="searchForm">
+        <div>
+            <label for="search">Buscar por Apellido o Nombre:</label>
+            <input type="text" name="search" id="search" placeholder="Buscar...">
+        </div>
+        <div>
+            <button type="submit" id="searchBtn">Buscar</button>
+        </div>
+    </form>
+
+    <hr>
+
+    <h2>Profesores Registrados</h2>
+    <table border="1" id="profesorTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Apellido</th>
+                <th>Nombre</th>
+                <th>Teléfono</th>
+                <th>Correo</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Filas dinámicamente generadas desde JavaScript -->
+        </tbody>
+    </table>
+
+    <script src="../js/abm_profesor.js"></script>
+</body>
+</html>

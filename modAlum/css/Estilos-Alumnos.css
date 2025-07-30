@@ -1,0 +1,54 @@
+.bodyHistorialMat{
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 20vh);
+    margin: 0;
+    padding: 0;
+    background-color: #ffbeefe0;
+}
+.titulo{
+    margin-top: 20px;
+    margin-bottom: 30px;
+    margin-left: 35%;
+    font-size: 60px;
+}
+.grilla{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 70vw;
+    margin: 0 auto;
+    text-align: center;
+    border: 1px solid black;
+    background-color: white;
+}
+.grilla table{
+    margin-top: 0;
+    align-items: center;
+    min-height: 100%;
+    min-width: 100%;
+    color: black;
+    font-size: 20px;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+.grilla table thead th{
+    font-size: 35px;
+    padding: 20px 15px;
+    font-weight: 400;
+    border-right: solid 1px black;
+    border-bottom: solid 1px black;
+}
+td{
+    padding: 15px;
+    border-bottom: solid 1px black;
+    border-right: solid 1px black;
+}
+#datos tr:hover{
+    background-color: rgba(56, 82, 250, 1);
+    color: white;
+    cursor: pointer;
+}

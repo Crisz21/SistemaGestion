@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://code.jquery.com/jquery-3.7.1.js"></script> 
+        
+        <script src="../../scripts/lobbyEstudiante.js"></script>
+        
+         
+</head>
+        <body>
+                <header id="header"></header> 
+
+                <h1 id="cartelBienvenida"></h1>
+                        <script>mostrarBienvenida();</script>
+
+        <div id="contenedor-botones-admin">
+            <div id="fila-botones-admin">
+                <!-- Botón Usuario -->
+                <a href="formulario_profesor.php">
+                    <button class="btn-usuario">
+                        <img src="./Img/Iconos/Usuario.png" alt="">
+                        <span>Usuario</span>
+                    </button>
+                </a>
+
+                <!-- Botón Asistencia -->
+                <a href="asistencia.php">
+                    <button class="btn-asistencia">
+                        <img src="./Img/Iconos/Asistencia.png" alt="">
+                        <span>Asistencia</span>
+                    </button>
+                </a>
+
+                <!-- Botón Calificaciones -->
+                <a href="calificaciones.php">
+                    <button class="btn-calificaciones">
+                        <img src="./Img/Iconos/Calificaciones.png" alt="">
+                        <span>Calificaciones</span>
+                    </button>
+                </a>
+
+                <!-- Botón Calendario -->
+                <a href="CalendarioC.html">
+                    <button class="btn-calendario">
+                        <img src="./Img/Iconos/Calendario.png" alt="">
+                        <span>Calendario</span>
+                    </button>
+                </a>
+            </div>
+        </div>
+        <script src="../../scripts/header2.js"></script>
+        <script src="../../scripts/btnHeader.js?v=1"></script>       
+        </body>
+</html>

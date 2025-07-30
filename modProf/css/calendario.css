@@ -1,0 +1,95 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+h1 {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    margin: 0;
+}
+
+.navegacion-mes {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.navegacion-mes a {
+    font-size: 20px;
+    margin: 0 20px;
+    text-decoration: none;
+    color: #4CAF50;
+}
+
+.navegacion-mes a:hover {
+    color: #45a049;
+}
+
+.calendar-container {
+    margin-top: 20px;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 5px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.calendar div {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.calendar .header {
+    font-weight: bold;
+    background-color: #f2f2f2;
+}
+
+.calendar .day {
+    cursor: pointer;
+}
+
+.calendar .day:hover {
+    background-color: #f0f0f0;
+}
+
+.formulario-evento {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f2f2f2;
+    width: 50%;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#mensaje {
+    margin-top: 20px;
+    font-size: 18px;
+}

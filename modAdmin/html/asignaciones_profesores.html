@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Asignar Profesor a Curso</title>
+    <link rel="stylesheet" href="../css/asignaciones_profesores.css">
+</head>
+<body>
+    <h1>Asignar Profesor a Curso</h1>
+
+    <!-- Mensajes -->
+    <div id="mensaje" class="mensaje"></div>
+
+    <!-- Formulario -->
+    <form id="formAsignacion">
+        <div>
+            <label for="idCarrera">Carrera:</label>
+            <select name="idCarrera" id="idCarrera" required>
+                <option value="" disabled selected>Selecciona una carrera</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="anio">Año:</label>
+            <select name="anio" id="anio" required>
+                <option value="" disabled selected>Selecciona un año</option>
+                <option value="1er año">1er año</option>
+                <option value="2do año">2do año</option>
+                <option value="3er año">3er año</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="division">División:</label>
+            <select name="division" id="division" required>
+                <option value="" disabled selected>Selecciona una división</option>
+                <option value="1ro">1ro</option>
+                <option value="2do">2do</option>
+                <option value="3ro">3ro</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="idMateria">Materia:</label>
+            <select name="idMateria" id="idMateria" required>
+                <option value="" disabled selected>Selecciona una materia</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="idProfesor">Profesor:</label>
+            <select name="idProfesor" id="idProfesor" required>
+                <option value="" disabled selected>Selecciona un profesor</option>
+            </select>
+        </div>
+
+        <button type="submit">Asignar Profesor al Curso</button>
+    </form>
+
+    <hr>
+
+    <h2>Cursos Asignados</h2>
+    <table border="1" id="tablaAsignaciones">
+        <thead>
+            <tr>
+                <th>ID Curso</th>
+                <th>Profesor</th>
+                <th>Carrera</th>
+                <th>División</th>
+                <th>Año</th>
+                <th>Materia</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script src="../js/asignaciones_profesores.js"></script>
+</body>
+</html>

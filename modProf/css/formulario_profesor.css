@@ -1,0 +1,322 @@
+/* cuerpo y configs genericas*/
+body{font-family: "Segoe UI"; background-color:#F1D5D5;} /*Cuerpo de la hoja */
+span.generic{font-size: 15px; } /* tamaño de letra en el primer texto */
+span.generic2 {font-size: 15px;margin-left: 215px} /* tamaño de letra y margen para en el segundo texto */
+span.generic3 {font-size: 15px;margin-left: 120px} /* tamaño de letra y margen para en el tercer texto */
+span.textbox2{margin-left: 42px} /* altura de la caja*/
+span.tb2{margin-left: 20px}
+span.tb3{margin-left: 20px}
+.tb-carre{ max-width: 20px;}
+div.nc{margin-top:20px} /* altura de la caja de nombre completo*/
+span.ape-com{margin-left: 145px} /* margen para apellido completo */
+div.contenedor { height: 90px; width: 100px} /* contenedor para la tabla profesores */
+div.contenedor2 { width: 350px; height: 250px; margin-left: 270px; margin-top: -100px} /* 2do contenedor para la tabla profesores  */
+div.contenedortitulo {border-radius: 9px;
+    border: solid 1px #9c9c9c;
+    padding: 10px 20px;
+    padding-bottom: 20px;
+    margin: 20px 0; }
+div.IdConteiner {position: relative;
+    text-align: left;
+    background: white;
+    padding-left: 15px;
+    margin: 0 5px;
+    margin-top: -20px;
+    min-width: 150px;
+    max-width: 240px;
+    font-weight: bold;
+    background-color:#F1D5D5;
+}
+
+/* configuracion de las tablas general */
+table{
+   text-align: center;
+    margin-top: 20px;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+td {border: 1px solid black; padding: 5px;}
+th{
+   text-align: center;
+    margin-top: 20px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+} /* configuracion de las tablas general */
+
+/* configuracion de las listas */
+ol.h-materia{margin-left: 220px; margin-top: -22px;} /* configuracion del listado Habilitar en materias */
+ol{margin: 5px; }  /* configuracion del listado de adminis */
+
+
+/* configuracion del listado del los botones*/
+button{
+    padding: 7px;
+    border-radius: 15px;
+   
+}
+button.modificar
+{   margin-top: 20px;
+    margin-left: 260px;
+    background:#06DC23;} /* configuracion del listado del boton modificar */
+button.Guardar{
+    margin-top: 20px;
+    margin-left: 150px;
+    background:#06DCBF;
+}/* configuracion del listado del boton guardar */
+button.Eliminar{
+    background:#FF0000;
+    margin-top: 20px;
+    margin-left: 10px;
+    
+}/* configuracion del listado del boton eliminar */
+button.Agregar{ 
+    background:#06DC23;
+    margin-top: 20px;
+    margin-left: 10px;
+}/* configuracion del listado del boton agregar */
+
+/* Alineación de los campos y labels */
+.input-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.input-container > div {
+    width: 100%;
+    max-width: 280px;  /* Ajuste para que todos los campos tengan el mismo tamaño */
+    padding: 8px;
+}
+
+.input-container label {
+    display: block;  /* Los labels se muestran en bloque, uno encima del otro */
+    font-size: 14px;  /* Tamaño de fuente más pequeño */
+    margin-bottom: 5px;  /* Espacio entre el label y el input */
+}
+
+/* Campos de entrada (select, input) */
+.input-container input[type="date"],
+.input-container input[type="text"],
+.input-container select {
+    width: 100%;
+    max-width: 280px;  /* Hacerlos más pequeños */
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* Botón "Guardar" más pequeño y alineado a la derecha */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 6px 12px; 
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 20px;
+    align-self: flex-end; 
+    transition: background-color 0.3s;
+}
+
+/* Efecto al pasar el mouse sobre el botón */
+button:hover {
+    background-color: #45a049;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 16px;  
+}
+
+th, td {
+    padding: 16px;  
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+.checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+
+
+/* formulario profesor */
+
+
+
+
+/* Título centrado dentro del formulario */
+.generic {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Botones Back y Exit */
+.top-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.top-buttons button {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.top-buttons button:hover {
+    background-color: #45a049;
+}
+
+/* Contenedor de grupos de inputs */
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Ajuste para que estén más centrados */
+    justify-content: center; /* Centrar los elementos dentro del formulario */
+    margin-bottom: 15px;
+}
+
+/* Ajustes para que los inputs no sean demasiado grandes */
+.input-item {
+    width: 100%;
+    max-width: 380px; /* Ajuste de tamaño de los campos */
+    padding: 5px;
+}
+
+/* Estilos de los inputs */
+.input-item label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px; /* Reducir margen */
+}
+
+.input-item input,
+.input-item select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: #f9f9f9;
+}
+
+.input-item input:focus,
+.input-item select:focus {
+    border-color: #4CAF50;
+    outline: none;
+    background-color: #fff;
+}
+
+.input-item input::placeholder,
+.input-item select {
+    color: #aaa;
+}
+
+/* Alinear el botón de forma correcta */
+button {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+    align-self: center; 
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Mejorar el espaciado general de los campos */
+hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 20px 0;
+}
+
+
+
+/* Estilo para los campos de calificación */
+input.calificacion {
+    width: 80px; /* Aumento del tamaño de los campos */
+    padding: 8px; /* Un padding más grande para mayor comodidad */
+    text-align: center;
+    font-size: 16px; /* Aumento del tamaño de texto para mayor legibilidad */
+}
+
+/* Estilo de la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 16px; /* Aumento del tamaño del texto en la tabla */
+}
+
+th, td {
+    padding: 12px; /* Padding más grande para las celdas */
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Ajustar el ancho de las columnas de calificación */
+th:nth-child(4), th:nth-child(5), th:nth-child(6), th:nth-child(7) {
+    width: 120px; /* Aumento del tamaño de las columnas de calificación */
+}
+
+td:nth-child(4), td:nth-child(5), td:nth-child(6), td:nth-child(7) {
+    width: 120px; /* Aumento del tamaño de las celdas de calificación */
+}

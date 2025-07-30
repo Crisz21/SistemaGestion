@@ -1,0 +1,41 @@
+/* Encabezado */
+header#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1e3a8a;
+    padding: 1.5rem;
+    color: white;
+}
+
+header#header .logo {
+    width: 150px;
+}
+
+header#header .Texto h1 {
+    font-size: 2rem;
+}
+
+header#header .Texto p {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+#btnHead {
+    display: flex;
+    gap: 10px;
+}
+
+#btnHead button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#btnHead button:hover {
+    background-color: #45a049;
+}

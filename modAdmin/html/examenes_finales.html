@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Asignar Examen Final</title>
+    <link rel="stylesheet" href="../css/examenes_finales.css">
+</head>
+<body>
+    <h1>Asignar Examen Final</h1>
+
+    <div class="error" id="error"></div>
+    <div class="success" id="success"></div>
+
+    <form id="formulario">
+        <div>
+            <label for="idCarrera">Carrera:</label>
+            <select name="idCarrera" id="idCarrera" required>
+                <option value="">Selecciona una carrera</option>
+                </select>
+        </div>
+        </div>
+            <label for="idMateria">Materia:</label>
+            <select name="idMateria" id="idMateria" required>
+                <option value="">Selecciona una materia</option>
+                </select>
+        </div>
+        <div>
+            <label for="fecha">Fecha:</label>
+            <input type="date" name="fecha" id="fecha" required>
+        </div>
+        <div>
+            <label for="hora">Hora:</label>
+            <input type="time" name="hora" id="hora" required>
+        </div>
+        <div>
+            <label for="año">Seleccionar Año:</label>
+            <select name="año" id="año" required>
+                <option value="">Selecciona un año</option>
+                <option value="1er año">1er año</option>
+                <option value="2do año">2do año</option>
+                <option value="3er año">3er año</option>
+            </select>
+        </div>
+        <div>
+            <label for="division">Seleccionar División:</label>
+            <select name="division" id="division" required>
+                <option value="">Selecciona una división</option>
+                <option value="1ro">1ro</option>
+                <option value="2do">2do</option>
+                <option value="3ro">3ro</option>
+            </select>
+        </div>
+        <div>
+            <label for="llamado">Seleccionar Llamado:</label>
+            <select name="llamado" id="llamado" required>
+                <option value="">Selecciona un llamado</option>
+                <option value="1er llamado">1er llamado</option>
+                <option value="2do llamado">2do llamado</option>
+            </select>
+        </div>
+        <div>
+            <button type="submit" id="guardarExamen">Guardar</button>
+            <input type="hidden" id="editar_id" name="editar_id">
+        </div>
+    </form>
+
+    <hr>
+
+    <h2>Exámenes Asignados</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Carrera</th>
+                <th>Materia</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Año</th>
+                <th>División</th>
+                <th>Llamado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="tablaExamenes">
+            </tbody>
+    </table>
+
+    <script src="../js/examenes_finales.js"></script>
+</body>
+</html>

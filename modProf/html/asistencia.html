@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Asistencia</title>
+    <link rel="stylesheet" href="../css/asistencia.css">
+</head>
+<body>
+  
+    <h1>Registrar Asistencia</h1>
+
+    <!-- Formulario de búsqueda de alumnos -->
+    <form id="formBuscarAlumnos">
+        <div>
+            <label for="idCarrera">Seleccionar Carrera:</label>
+            <select name="idCarrera" id="idCarrera" required>
+                <option value="" disabled selected>Selecciona una carrera</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="anio">Seleccionar Año:</label>
+            <select name="anio" id="anio" required>
+                <option value="" disabled selected>Selecciona un año</option>
+                <option value="1er año">1er año</option>
+                <option value="2do año">2do año</option>
+                <option value="3er año">3er año</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="division">Seleccionar División:</label>
+            <select name="division" id="division" required>
+                <option value="" disabled selected>Selecciona una división</option>
+                <option value="1ro">1ro</option>
+                <option value="2do">2do</option>
+                <option value="3ro">3ro</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="idMateria">Seleccionar Materia:</label>
+            <select name="idMateria" id="idMateria" required>
+                <option value="" disabled selected>Selecciona una materia</option>
+            </select>
+        </div>
+
+        <button type="submit">Buscar Alumnos</button>
+    </form>
+
+    <hr>
+
+    <h2>Asistencia del Curso Seleccionado</h2>
+    <form id="formGuardarAsistencia">
+        <table id="tablaAlumnos" border="1">
+            <thead>
+                <tr>
+                    <th>DNI</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Fecha</th>
+                    <th>Asistencia</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+
+        <button type="submit">Guardar Asistencia</button>
+    </form>
+
+    <script src="../js/asistencia.js"></script>
+</body>
+</html>

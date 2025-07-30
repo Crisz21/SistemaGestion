@@ -1,0 +1,69 @@
+Esto esta basado en lo que yo (cristian) investigue de programacion web, asique puede que este errada mi vision.
+
+Para desarrollar una aplicacion correctamente utilizando las mejores practicas de programacion, deberiamos hacerlo utilizando un framework
+como lo son: Angular, React y vue.js. Estas son librerias de javascript que trabajan con componentes que ya se cargan previamente antes de que el usuario 
+acceda. Pero hacer esto en este punto del desarrollo nos va a llevar muchisimo tiempo porque son framework bastante mas complejos. Nosotros estamos 
+desarrollando de la forma Vanilla o mas primitiva usando javascript puro casi sin librerias, la unica que usamos es jquery para manipular el dom 
+y enviar las solicitudes ajax.
+
+La mejor manera practica y sencilla para no tener que pasar todo el proyecto a un framework (como les mencione antes), es:
+Crear un documento html como puede ser por ejemplo el lobby alumno.
+Actualmente lobbyAlumno.html tiene los botones Documentacion, Calendario, Pagina Web, Materias, etc. lo que yo propongo es crear
+un documento llamado lobbyUser, y dentro de este colocar un div universal por ejemplo:
+<div id="lobbyUser"></div>. luego crear un documento js que se llame lobbyUser y dentro de este documento 
+vamos a hacer lo siguiente: 
+1ero- obtener el rol del usuario que se loguea para saber si es alumno, profesor o administrativo.
+2do- crear un switch que evalue el rol del usuario y en base a ese resultado va a utilizar la funcion llamada insertAdjacentHtml. 
+esta funcion de js permite ingresar codigo html desde javascript. Entonces cuando el usuario sea un alumno el foco entraria en el switch
+luego dentro del switch llamamos a una funcion que carga el div lobbyUser con todos los botones que corresponde al rol de alumno.
+
+De esta manera creamos las interfaces de cada usuario dinamicamente con javascript y estariamos evitando crear 3 documentos html. Sino 
+tendriamos que hacer lobbyAlumno.html luego lobbyAdministrativo.html luego lobbyProfesor.html. De la manera que yo propongo reutilizamos codigo y hacemos 
+mas legible el codigo.
+
+Otra de las cosas que tambien estuve viendo, es el tema de los documentos php. Esto es mas de lo mismo, tenemos que usar librerias como laravel para 
+tener solo un documento php y que este se encargue de enviar las respuestas que necesita cada solicitud ajax.
+
+Mas o menos esto funciona asi: html contiene todo el cuerpo de la pagina y lo que se muestra en pantalla. Javascript accede a los elementos que contiene html
+puede ser un div, un parrafo, un formulario, un input o lo que sea. Obtiene estos elementos utilizando jquery. Para interactuar con la base de datos debemos
+si o si usar php, no podemos hacer una consulta a la base de datos directamente desde js. Entonces Javascript le manda una solicitud Ajax a php, le solicita
+por ejemplo que rol de usuario ingreso, luego php consulta a la base de datos por medio del id del usuario que ingreso y la base de datos le responde pero
+a php le responde. Luego para enviar esta respuesta a js, php utiliza un "echo" que es un mensaje, js recibe este mensaje por la solicitud ajax. fijense que 
+donde dice "succes":
+
+ success: function(data  //aca adentro recibe ajax el resultado que envia php, este caso "data" es el mensaje o el resultado que ajax recibio de php){
+    //aca adentro se pone lo que vos queres que se haga con el resultado de la respuesta php.
+    //por ejemplo puede ser un mensaje en consola que diga:
+    console.log("el rol del usuario es "+ data); //esto mostraria en consola por ejemplo que el rol del usuario que ingreso es "1" osea alumno.
+
+}.
+
+
+A grandes rasgos es asi como funciona la informacion entre estos lenguajes. Ahora yo propongo crear un enrutamiento para las solicitudes Ajax.
+es decir crear un archivo que se llame enrutamiento.php el cual va a recibir todas las solicitudes ajax que cualquier documento js envie.
+
+este modelo es el que usamos actualmente:
+documento1.js<------------->documento1.php
+documento2.js<------------->documento2.php
+documento3.js<------------->documento3.php
+
+este modelo propongo yo:
+documento1.js <--------------->                    <-----------------------> documento1.php
+documento2.js <--------------->  Enrutamiento.php  <-----------------------> documento2.php    
+documento3.js <--------------->                    <-----------------------> documento3.php                
+
+
+¿Que lograriamos con esto?
+Primero tendriamos un mayor control de todas las solicitudes que se envian, podriamos agregar y quitar solicitudes mas facilmente. Tambien logramos reutilizar mas codigo, ya que actualmente hay solicitudes ajax que llaman a un documento.php y luego este documento.php requiere llamar quizas a dos documentos php 
+para dar una respuesta a esa solicitud. Y no hay problema en que se llame a 2 o 3 documentos php para responder a la solicitud, el problema esta en que 
+para programar esto y estar llamando a 3 documentos es un dolor de cabeza y se arma un codigo "espagueti" quiere decir que para encontrar que hace una funcion
+tenes que estar buscando en 4 o 5 documentos de mas o menos 40 o 60 lineas de codigo, te rompes la cabeza basicamente.
+
+En cuanto a los documentos CSS, podemos crear uno solo y cuando queremos dar estilos a cada elemento html lo llamamos por el id o la clase del elemento. Esto es mucho mas facil, podriamos ponerlo todo en un solo documento o dividirlo en 3 partes, Alumno, Administrativo y Profesor como para tenerlo separado y 
+en caso de querer cambiar algo entramos directamente en el que queremos modificar.
+
+Este seria el plan que yo propongo para unificar, organizar y entender lo que estamos haciendo, me parece una forma mas clara y simple. 
+Si alguno encuentra una mejor manera comentenlo y lo vemos. Pero traten de que se adapte mas o menos a las formas y el codigo que ya tenemos creado 
+para no estirar mas el desarrollo. Porque estamos aprendiendo y desarrollando al mismo tiempo. Esto es prueba y error todo el tiempo, asique todo nos va 
+a llevar el doble justamente de tiempo.
+

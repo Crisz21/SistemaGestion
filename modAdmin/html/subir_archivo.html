@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subir Formulario PDF</title>
+    <link rel="stylesheet" href="../css/subir_archivo.css">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <div class="form-container">
+        <h1>Formulario Administrativo - Subir Archivo PDF</h1>
+        <form id="uploadForm" enctype="multipart/form-data">
+            <label for="pdfFile">Selecciona el archivo PDF:</label>
+            <input type="file" id="pdfFile" name="pdfFile" accept=".pdf" required />
+            <button type="submit">Subir Formulario PDF</button>
+        </form>
+
+        <div id="message-container"></div>
+
+        <h2>Archivos Subidos:</h2>
+        <div id="file-list-container">
+            <p>Cargando lista de archivos...</p>
+        </div>
+    </div>
+
+    <script src="../js/subir_archivo.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>ABM Carreras</title>
+    <link rel="stylesheet" href="../css/abm_carrera.css">
+    <script src="../js/abm_carrera.js"></script> <!-- Vinculación con el archivo JS -->
+</head>
+<body>
+    <div class="form-container">
+        <h1>Administrar Carreras</h1>
+
+        <!-- Mensajes de error o éxito -->
+        <div id="message"></div> <!-- Aquí se mostrarán los mensajes de error o éxito -->
+
+        <!-- Formulario para agregar carrera -->
+        <form id="formCarrera" method="POST" action="../php/abm_carrera.php">
+            <div class="input-group">
+                <label for="nombreCarrera">Nombre de la Carrera</label>
+                <input type="text" id="nombreCarrera" name="nombreCarrera" required>
+            </div>
+            <div class="input-group">
+                <label for="resolucion">Número de Resolución</label>
+                <input type="text" id="resolucion" name="resolucion" required>
+            </div>
+            <div class="form-actions">
+                <button type="submit" name="agregar">Agregar Carrera</button>
+            </div>
+        </form>
+
+        <hr>
+
+        <h2>Carreras Existentes</h2>
+
+        <!-- Listado de carreras -->
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Resolución</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="tableCarreras">
+                <!-- Las carreras se cargarán aquí mediante JavaScript -->
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

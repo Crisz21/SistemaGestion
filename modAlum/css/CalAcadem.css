@@ -1,0 +1,8 @@
+#bodyCalAcademico{
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 20vh);
+    margin: 0;
+    padding: 0;
+    background-color: #ffbeefe0;
+}

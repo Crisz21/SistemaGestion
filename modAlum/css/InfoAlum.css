@@ -1,0 +1,42 @@
+#bodyInfoAlum{
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 20vh);
+    margin: 0;
+    padding: 0;
+    background-color: #ffbeefe0;
+}
+#titulo{
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    font-size: 3em;
+    padding-left: 1em;
+}
+#cont-Principal{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 0em auto;
+    width: 80%;   
+    
+}
+#cont-individual{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+}
+#cont-Principal div{
+    height: 4em;
+    width: 25em;
+    background-color: white;
+    border: 1px solid #707070;
+    margin-top: 0.5em;
+    margin-bottom: 2em;
+    font-size: 20px;
+}
+#cont-Principal label{
+    font-size: 2em;
+
+}
