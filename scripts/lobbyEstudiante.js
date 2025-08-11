@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function(){
         var btnUsuario= document.querySelector('.btn-user');
         var btnPagWeb= document.querySelector('.btn-pagWeb');
         var btnCalAcademico = document.querySelector('.btn-calendar');
-
+        
         btnMat.addEventListener('click', function(){
             window.location.href='./ALM_materias.html';
         });

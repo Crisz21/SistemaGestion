@@ -42,7 +42,7 @@ $(document).ready(function(){
                                 break;
                             case '2': window.location.href= './modProf/html/panel_profesor.html';
                                 break;
-                            case '3': window.location.href= './modAdmin/html/panel_administrativo.html'
+                            case '3': window.location.href= './modAdmin/html/panel_administrativo.html';
                                 break;
                         }
                     }else{

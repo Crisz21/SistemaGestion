@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
+    
     function cargarAsignaciones() {
         fetch('../php/asignaciones_alumnos.php?accion=listar')
             .then(res => res.json())
