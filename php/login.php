@@ -22,7 +22,7 @@ if(mysqli_num_rows($result)>0){
     $_SESSION['nomUser']=$nomUser;
     $_SESSION['idUsuario']=$idUsuario;
     $_SESSION['apellidoUser'] = $apellidoUser;
-    $_SESSION['rolUser'] = $idRolUser;
+    $_SESSION['idRol'] = $idRolUser;
     
 }else{
     echo 'false';

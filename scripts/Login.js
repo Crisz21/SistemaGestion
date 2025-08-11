@@ -38,11 +38,17 @@ $(document).ready(function(){
                         console.log("se recibio el ok aca adentro y el rol es" + idRol);
                         switch (idRol){
                             
-                            case '1': window.location.href= './modAlum/lobbyEstudiante.html';
+                            case '1':
+                                localStorage.setItem('rol',idRol);
+                                 window.location.href= './modAlum/lobbyEstudiante.html';
                                 break;
-                            case '2': window.location.href= './modProf/html/panel_profesor.html';
+                            case '2':
+                                localStorage.setItem('rol',idRol);
+                                 window.location.href= './modProf/html/panel_profesor.html';
                                 break;
-                            case '3': window.location.href= './modAdmin/html/panel_administrativo.html';
+                            case '3':
+                                localStorage.setItem('rol',idRol);
+                                 window.location.href= './modAdmin/html/panel_administrativo.html';
                                 break;
                         }
                     }else{
