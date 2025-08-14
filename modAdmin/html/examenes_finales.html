@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <title>Asignar Examen Final</title>
     <link rel="stylesheet" href="../css/examenes_finales.css">
+    <link rel="stylesheet" href="../css/estilosHeader.css"> <!-- CSS del header -->
 </head>
 <body>
+    <header id="header"></header> <!-- Header reutilizable -->
+
     <h1>Asignar Examen Final</h1>
 
     <div class="error" id="error"></div>
@@ -16,13 +19,13 @@
             <label for="idCarrera">Carrera:</label>
             <select name="idCarrera" id="idCarrera" required>
                 <option value="">Selecciona una carrera</option>
-                </select>
+            </select>
         </div>
-        </div>
+        <div>
             <label for="idMateria">Materia:</label>
             <select name="idMateria" id="idMateria" required>
                 <option value="">Selecciona una materia</option>
-                </select>
+            </select>
         </div>
         <div>
             <label for="fecha">Fecha:</label>
@@ -82,9 +85,10 @@
             </tr>
         </thead>
         <tbody id="tablaExamenes">
-            </tbody>
+        </tbody>
     </table>
 
     <script src="../js/examenes_finales.js"></script>
+    <script src="../js/header.js"></script> <!-- Script para insertar header -->
 </body>
 </html>

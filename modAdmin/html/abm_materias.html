@@ -3,48 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>Registrar Materia</title>
-    <link rel="stylesheet" href="../css/abm_materias.css">  <!-- Enlace a CSS -->
-</head>
+    <link rel="stylesheet" href="../css/abm_materias.css"> <link rel="stylesheet" href="../css/estilosHeader.css"> </head>
 <body>
+    <header id="header"></header>
+
     <h1>Registrar Materia</h1>
 
-    <!-- Mostrar mensajes de éxito o error -->
     <div id="error"></div>
     <div id="success"></div>
 
-    <!-- Formulario de alta o edición de materia -->
     <form id="materiaForm">
-        <!-- Campo de Carrera -->
         <div>
             <label for="idCarrera">Carrera:</label>
             <select id="idCarrera" name="idCarrera" required>
-                <option value="">Seleccionar Carrera...</option> <!-- Opción predeterminada -->
-                <!-- Las opciones de carreras se cargarán con JavaScript -->
-            </select>
+                <option value="">Seleccionar Carrera...</option>
+                </select>
         </div>
 
-        <!-- Campo de Nombre de la Materia -->
         <div>
             <label for="nombre">Nombre de la Materia:</label>
             <input type="text" id="nombre" name="nombre" required>
         </div>
 
-        <!-- Campo de Año -->
         <div>
             <label for="año">Año:</label>
             <select id="año" name="año" required>
-                <option value="">Seleccionar Año...</option> <!-- Opción predeterminada -->
+                <option value="">Seleccionar Año...</option>
                 <option value="1er Año">1er Año</option>
                 <option value="2do Año">2do Año</option>
                 <option value="3er Año">3er Año</option>
             </select>
         </div>
 
-        <!-- Campo de División -->
         <div>
             <label for="division">División:</label>
             <select id="division" name="division" required>
-                <option value="">Seleccionar División...</option> <!-- Opción predeterminada -->
+                <option value="">Seleccionar División...</option>
                 <option value="1ro">1ro</option>
                 <option value="2do">2do</option>
                 <option value="3ro">3ro</option>
@@ -52,24 +46,21 @@
             </select>
         </div>
 
-        <!-- Campo de Modalidad -->
         <div>
             <label for="modalidad">Modalidad:</label>
             <select id="modalidad" name="modalidad" required>
-                <option value="">Seleccionar Modalidad...</option> <!-- Opción predeterminada -->
+                <option value="">Seleccionar Modalidad...</option>
                 <option value="Presencial">Presencial</option>
                 <option value="Bimodal">Bimodal</option>
                 <option value="Libre">Libre</option>
             </select>
         </div>
 
-        <!-- Campo de Correlativa -->
         <div>
-            <label for="correlativa">Correlativa:</label>
-            <select id="correlativa" name="correlativa">
-                <option value="">No tiene correlativa</option> <!-- Opción para no tener correlativa -->
-                <!-- Las correlativas se cargarán con JavaScript -->
-            </select>
+            <label for="correlativa">Correlativa(s):</label>
+            <select id="correlativa" name="correlativa[]" multiple>
+                </select>
+            <small>Mantén Ctrl (o Cmd en Mac) para seleccionar múltiples opciones.</small>
         </div>
 
         <div>
@@ -92,10 +83,8 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Las materias se cargarán con JavaScript -->
-        </tbody>
+            </tbody>
     </table>
 
-    <script src="../js/abm_materias.js"></script>  <!-- Enlace a JS -->
-</body>
+    <script src="../js/abm_materias.js"></script> <script src="../js/header.js"></script>     </body>
 </html>

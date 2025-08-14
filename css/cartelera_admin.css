@@ -1,0 +1,134 @@
+/* --- Estilos para el Contenedor Principal de la Cartelera Administrativa --- */
+.container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Estilos para Grupos de Formulario (Label e Input/Textarea/Select) --- */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group textarea,
+.form-group select,
+.form-group input[type="date"] {
+    width: calc(100% - 22px); /* Ajuste para el padding */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.form-group textarea {
+    resize: vertical; /* Permite redimensionar verticalmente */
+    min-height: 80px;
+}
+
+/* --- Estilos para Mensajes de Éxito/Error --- */
+.mensaje {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    display: none; /* Oculto por defecto, se muestra con JS */
+}
+
+.mensaje.success {
+    background-color: #d4edda;
+    color: #155724;
+    border-color: #c3e6cb;
+}
+
+.mensaje.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-color: #f5c6cb;
+}
+
+/* --- Estilos para Botones Generales (Primario, Secundario) --- */
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-secondary { /* Estilo para botón Cancelar Edición */
+    background-color: #6c757d;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-left: 10px;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* --- Estilos para la Tabla de Mensajes --- */
+.table {
+    width: 100%;
+    border-collapse: collapse; /* Bordes de celdas unidos */
+    margin-top: 20px;
+}
+
+.table th, .table td {
+    border: 1px solid #ddd; /* Bordes de las celdas */
+    padding: 8px;
+    text-align: left;
+    vertical-align: top; /* Alinea el contenido en la parte superior */
+}
+
+.table th {
+    background-color: #f2f2f2;
+}
+
+/* --- Estilos para Botones de Acción en la Tabla (Eliminar, Editar) --- */
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.btn-edit {
+    background-color: #ffc107; /* Amarillo */
+    color: #212529; /* Texto oscuro para contraste */
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-right: 5px; /* Espacio entre botones */
+}
+
+.btn-edit:hover {
+    background-color: #e0a800; /* Amarillo más oscuro al pasar el ratón */
+}

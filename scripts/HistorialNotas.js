@@ -25,7 +25,7 @@ window.onload = function(){
 function obtenerExamenes(materia1){
     $.ajax({
       type:"POST",
-      url:"./php/controlGeneral.php",
+      url:"../php/controlGeneral.php",
       data: {accion:"obtenerExamenes", materia: materia1},
       dataType: "json",
       success: function (data) {
@@ -58,6 +58,7 @@ function obtenerExamenes(materia1){
    
   };
 function cargarDatos(materia,carrera,nomProf,division,nomUsuario,apellido){
+    console.log(materia,carrera,nomProf,division,nomUsuario,apellido);
     document.getElementById("materia").textContent += ' '+materia;
     document.getElementById("carrera").textContent += ' '+carrera;
     document.getElementById("division").textContent += ' '+division;

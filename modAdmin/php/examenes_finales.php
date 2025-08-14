@@ -1,15 +1,7 @@
 <?php
-// Conectar a la base de datos
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "sistemaeducativo";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+include 'conexion.php';
 
-if ($conn->connect_error) {
-    die(json_encode(['error' => "Conexión fallida: " . $conn->connect_error]));
-}
 
 header('Content-Type: application/json');
 
@@ -28,13 +20,32 @@ switch ($accion) {
         break;
 
     case 'cargar_materias':
-        $sql_materias = "SELECT idMateria, nombre FROM materias";
-        $result_materias = $conn->query($sql_materias);
-        $materias = [];
-        while ($row = $result_materias->fetch_assoc()) {
-            $materias[] = $row;
+        $idCarrera = $_GET['idCarrera'] ?? null; // Obtener idCarrera si viene en la URL
+
+        if ($idCarrera) {
+            // Si se proporciona idCarrera, filtrar las materias por idCarrera directamente en la tabla materias
+            $stmt = $conn->prepare("SELECT idMateria, nombre 
+                                    FROM materias 
+                                    WHERE idCarrera = ?");
+            $stmt->bind_param("i", $idCarrera);
+            $stmt->execute();
+            $result_materias = $stmt->get_result();
+            $materias = [];
+            while ($row = $result_materias->fetch_assoc()) {
+                $materias[] = $row;
+            }
+            echo json_encode($materias);
+            $stmt->close();
+        } else {
+            // Si no se proporciona idCarrera, devolver todas las materias (comportamiento original)
+            $sql_materias = "SELECT idMateria, nombre FROM materias";
+            $result_materias = $conn->query($sql_materias);
+            $materias = [];
+            while ($row = $result_materias->fetch_assoc()) {
+                $materias[] = $row;
+            }
+            echo json_encode($materias);
         }
-        echo json_encode($materias);
         break;
 
     case 'listar_examenes':
@@ -109,7 +120,7 @@ switch ($accion) {
 
                 // Verificación de datos duplicados (ahora permite el mismo examen con diferente llamado)
                 $sql_check = "SELECT 1 FROM examenes_finales
-                                  WHERE idMateria = ? AND fecha = ? AND hora = ? AND idCarrera = ? AND idCurso = ? AND llamado = ?";
+                                     WHERE idMateria = ? AND fecha = ? AND hora = ? AND idCarrera = ? AND idCurso = ? AND llamado = ?";
                 $stmt_check = $conn->prepare($sql_check);
                 $stmt_check->bind_param("sssiii", $idMateria, $fecha, $hora, $idCarrera, $idCurso, $llamado);
                 $stmt_check->execute();
@@ -132,7 +143,7 @@ switch ($accion) {
                     } else {
                         // Si es nuevo, insertar el nuevo examen en la tabla examenes_finales
                         $sql = "INSERT INTO examenes_finales (idMateria, fecha, hora, idCarrera, idCurso, llamado)
-                                      VALUES (?, ?, ?, ?, ?, ?)";
+                                         VALUES (?, ?, ?, ?, ?, ?)";
                         $stmt = $conn->prepare($sql);
                         $stmt->bind_param("sssiii", $idMateria, $fecha, $hora, $idCarrera, $idCurso, $llamado);
 

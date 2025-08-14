@@ -22,6 +22,8 @@ $(document).ready(function() {
                     $("#idUsuarioInput").prop("readonly", false); // Habilitar edición del ID al crear
                     $("#idUsuarioInput").val(''); // Limpiar el ID para nuevas altas
                     $("#guardarBtn").text("Guardar Alumno"); // Resetear el texto del botón
+                    // CORRECCIÓN: Limpiar el campo oculto 'editar_id' al guardar un nuevo alumno o resetear.
+                    $("#editar_id").val(''); 
                 } else {
                     $("#responseMessage").html('<p style="color: red;">' + response.message + '</p>');
                 }
@@ -48,16 +50,16 @@ $(document).ready(function() {
                     // Recorrer los alumnos y agregar filas a la tabla
                     alumnos.forEach(function(alumno) {
                         var row = `<tr>
-                            <td>${alumno.idUsuario}</td>
-                            <td>${alumno.apellido}</td>
-                            <td>${alumno.nombre}</td>
-                            <td>${alumno.telefono}</td>
-                            <td>${alumno.correo}</td>
-                            <td>
-                                <button class="editBtn" data-id="${alumno.idUsuario}">Editar</button>
-                                <button class="deleteBtn" data-id="${alumno.idUsuario}">Eliminar</button>
-                            </td>
-                        </tr>`;
+                                <td>${alumno.idUsuario}</td>
+                                <td>${alumno.apellido}</td>
+                                <td>${alumno.nombre}</td>
+                                <td>${alumno.telefono}</td>
+                                <td>${alumno.correo}</td>
+                                <td>
+                                    <button class="editBtn" data-id="${alumno.idUsuario}">Editar</button>
+                                    <button class="deleteBtn" data-id="${alumno.idUsuario}">Eliminar</button>
+                                </td>
+                            </tr>`;
                         tableBody.append(row);
                     });
 
@@ -94,22 +96,24 @@ $(document).ready(function() {
                     var alumno = response.alumno;
 
                     // Llenar los campos del formulario con los datos del alumno
-                    $("#idUsuarioInput").val(alumno.idUsuario); // Autocompletar el ID (editable ahora)
+                    $("#idUsuarioInput").val(alumno.idUsuario);
                     $("#apellido").val(alumno.apellido);
                     $("#nombre").val(alumno.nombre);
                     $("#telefono").val(alumno.telefono);
                     $("#telefono2").val(alumno.telefono2);
                     $("#correo").val(alumno.correo);
-                    $("#contrasena").val(alumno.contrasena); // Autocompletar la contraseña (de la tabla login)
+                    $("#contrasena").val(alumno.contrasena);
                     $("#calle").val(alumno.calle);
                     $("#nroAltura").val(alumno.nroAltura);
                     $("#piso").val(alumno.piso);
                     $("#codigoPostal").val(alumno.codigoPostal);
                     $("#dpto").val(alumno.dpto);
                     $("#localidad").val(alumno.localidad);
-                    $("#provincia").val(alumno.provincia); // Autocompletar la provincia desde el select
+                    $("#provincia").val(alumno.provincia);
 
-                    // Eliminar la línea de readonly para que el DNI sea editable
+                    // CORRECCIÓN: Llenar el campo oculto 'editar_id' con el ID original para la edición
+                    $("#editar_id").val(alumno.idUsuario);
+
                     $("#idUsuarioInput").prop("readonly", false); // DNI editable
 
                     // Para que el formulario sea de edición, cambiamos el texto del botón

@@ -1,0 +1,210 @@
+/* Cuerpo y configuraciones generales */
+body {
+    font-family: "Segoe UI", sans-serif;
+    background-color: #F1D5D5; /* Fondo rosado original */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo para el contenedor principal */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    /* QUITAMOS EL FONDO BLANCO Y LA SOMBRA DE AQUÍ TAMBIÉN SI EXISTIERAN,
+       para que el fondo del body se vea a través del container.
+       Solo mantenemos el padding para el contenido. */
+    /* background-color: #ffffff; */
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    border-radius: 8px; /* Mantenemos por si el contenido interno tiene borde */
+}
+
+/* Título principal */
+h1 {
+    text-align: center;
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Mensajes de éxito y error */
+.mensaje { /* Usamos .mensaje como base */
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    display: none; /* Por defecto oculto, se muestra con JS */
+}
+
+.mensaje.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.mensaje.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+
+/* Estilo del formulario (AHORA SIN RECUADRO BLANCO GENERAL) */
+#formInscripcion {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espaciado entre los grupos de campos */
+    justify-content: center; /* Centra los grupos de campos */
+    padding: 20px; /* Padding interno */
+    /* QUITAMOS ESTAS PROPIEDADES PARA ELIMINAR EL RECUADRO BLANCO DEL FORMULARIO */
+    border: none; /* Sin borde */
+    background-color: transparent; /* Fondo transparente para ver el fondo del body */
+    box-shadow: none; /* Sin sombra */
+    border-radius: 0; /* Sin redondeo de bordes para el formulario en sí */
+    margin-bottom: 30px; /* Espaciado con lo de abajo */
+}
+
+/* Grupo de cada campo (label + select/input) */
+.form-group { /* Nota: Tu HTML usa 'form-group' en lugar de 'input-item' */
+    width: 100%;
+    max-width: 380px; /* Ancho máximo para los inputs */
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+/* Si quieres que los campos siempre estén en una sola columna en móviles */
+@media (max-width: 768px) {
+    .form-group {
+        max-width: 100%;
+    }
+}
+
+/* Estilo de las etiquetas de los inputs */
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* Estilo de los inputs y selects */
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd; /* Borde suave para CADA INPUT */
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: #f9f9f9; /* Fondo gris claro para CADA INPUT */
+    box-shadow: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+/* Estilo para el ícono de flecha en select (personalizado) */
+.form-group select {
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%20viewBox%3D%220%200%20292.4%20292.4%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M287%20197.6c-4.4%204.4-10.8%204.4-15.2%200L146.2%2072.7%2020.4%20197.6c-4.4%204.4-10.8%204.4-15.2%200-4.4-4.4-4.4-10.8%200-15.2l133.5-133.6c2.2-2.2%205-3.3%207.6-3.3s5.4%201.1%207.6%203.3l133.5%20133.6c4.4%204.4%204.4%2010.8%200%2015.2z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    background-size: 12px auto;
+    padding-right: 30px;
+}
+
+/* Efecto al hacer foco en los inputs y selects */
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #4CAF50;
+    outline: none;
+    background-color: #fff;
+    box-shadow: none;
+}
+
+/* Estilo del placeholder */
+.form-group input::placeholder {
+    color: #aaa;
+}
+
+/* Botón "Inscribir Alumno" */
+/* Usamos .btn.btn-primary ya que tu HTML tiene esa clase en el botón */
+.btn.btn-primary {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 20px;
+    /* align-self: flex-end; /* Ya no es necesario si el formInscripcion no tiene un solo eje principal */
+    transition: background-color 0.3s ease;
+}
+
+/* Efecto al pasar el mouse sobre el botón principal */
+.btn.btn-primary:hover {
+    background-color: #45a049;
+}
+
+/* Separador horizontal */
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #ddd;
+    margin: 40px 0;
+}
+
+/* Estilo de la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff; /* La tabla sí tiene fondo blanco */
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Estilo para los botones dentro de la tabla (eliminar) */
+td button {
+    background-color: #f44336;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+}
+
+/* Efecto al pasar el mouse sobre el botón eliminar */
+td button:hover {
+    background-color: #e53935;
+}

@@ -8,7 +8,9 @@ function mostrarBienvenida(){
         dataType: 'json',
             success: function(datos){
                 var nomUsuario = datos.nomUser;
+
                 var userRol = localStorage.getItem('rol');
+                
                 var cartelBienvenida = "Bienvenid@, "+ nomUsuario +"!";
                 document.getElementById("cartelBienvenida").innerHTML = cartelBienvenida;
                 ComprobarRol(userRol);
@@ -87,13 +89,16 @@ function CargarMenuProf(){
         });
 
         btnCartelera.addEventListener('click',function(){
-            window.location.href='./calificaciones.html';
+            window.location.href='./cartelera.html';
         });
 
         btnCalificaciones.addEventListener('click',function(){
             window.location.href='./calificaciones.html';
         });
-    
+        
+        btnMisDatos.addEventListener('click',function(){
+            window.location.href='./formulario_profesor.html';
+        })
 
 }
 
@@ -127,7 +132,7 @@ function CargarMenuAdmi(){
         window.location.href='./asignaciones_profesores.html';
     });
     btnAsignarHorario.addEventListener('click',function(){
-        
+        window.location.href='./abm_horarios.html';
     });
     btnExamenesFin.addEventListener('click',function(){
         window.location.href='./examenes_finales.html';

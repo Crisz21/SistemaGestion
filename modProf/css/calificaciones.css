@@ -170,36 +170,7 @@ tr:hover {
 
 
 
-/* Título centrado dentro del formulario */
-.generic {
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 20px;
-}
 
-/* Botones Back y Exit */
-.top-buttons {
-    display: flex;
-    justify-content: flex-end;
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.top-buttons button {
-    padding: 8px 16px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s;
-}
-
-.top-buttons button:hover {
-    background-color: #45a049;
-}
 
 /* Contenedor de grupos de inputs */
 .input-group {

@@ -4,19 +4,28 @@
     <meta charset="UTF-8">
     <title>Asignar Profesor a Curso</title>
     <link rel="stylesheet" href="../css/asignaciones_profesores.css">
+    <link rel="stylesheet" href="../css/estilosHeader.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
+
+    <header id="header"></header>
     <h1>Asignar Profesor a Curso</h1>
 
-    <!-- Mensajes -->
     <div id="mensaje" class="mensaje"></div>
 
-    <!-- Formulario -->
     <form id="formAsignacion">
         <div>
             <label for="idCarrera">Carrera:</label>
             <select name="idCarrera" id="idCarrera" required>
                 <option value="" disabled selected>Selecciona una carrera</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="idMateria">Materia:</label>
+            <select name="idMateria" id="idMateria" required>
+                <option value="" disabled selected>Selecciona una materia</option>
             </select>
         </div>
 
@@ -40,11 +49,10 @@
             </select>
         </div>
 
-        <div>
-            <label for="idMateria">Materia:</label>
-            <select name="idMateria" id="idMateria" required>
-                <option value="" disabled selected>Selecciona una materia</option>
-            </select>
+        <div class="dni-filter-group">
+            <label for="filtroDni">Filtrar Profesor por DNI:</label>
+            <input type="text" id="filtroDni" placeholder="Ingresa el DNI del profesor">
+            <button type="button" id="btnFiltrarProfesores">Buscar Profesor</button>
         </div>
 
         <div>
@@ -76,5 +84,6 @@
     </table>
 
     <script src="../js/asignaciones_profesores.js"></script>
+    <script src="../js/header.js"></script>
 </body>
 </html>

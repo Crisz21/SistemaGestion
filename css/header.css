@@ -1,0 +1,72 @@
+*{
+
+    margin:0 ;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI";
+    font-weight: 400;
+    font-style: normal;
+}
+#header{
+    position:relative;
+    display: flex;
+    justify-content: space-between;
+    background-size: cover;
+    background-color:  rgba(56, 82, 250, 1);
+    z-index: 1000;
+    box-shadow: 7px 13px 37px #000;
+    height: 20vh;
+}
+#header .logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10em;
+    height: 10em;
+    margin-left: 9em;
+    margin-top: 20px;
+    
+}
+
+.Texto{
+    display: flex;
+    justify-content: center;
+    align-items:left;
+    flex-direction:column ;
+    font-size: 30px;
+    min-height: 200px;   
+}
+#btnHead{
+    display: flex;
+    align-items: center;
+}
+#btnHead button{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    margin-right: 40px;
+    width: 140px;
+    height: 80px;
+    border-radius: 80px;
+    font-family:"Segoe UI" ;
+    font-size: 25px;
+    border: 3px solid black;
+    
+}
+#btnHead button:hover {
+    background-color:  rgba(56, 82, 250, 1); /* Cambia el color de fondo al pasar el ratón */
+    color: white; /* Cambia el color del texto */
+    cursor: pointer;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.658);
+}
+#btnAtras{
+    background-color: white;
+}
+#btnSalir{
+    background-color: red;
+}
+
+#header p{
+    text-align: left;
+    font-size: 20px;
+}

@@ -1,0 +1,181 @@
+/* Cuerpo y configuraciones generales */
+body {
+    font-family: "Segoe UI", sans-serif;
+    background-color: #F1D5D5; /* Fondo rosado claro */
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor general del formulario */
+/* Para que se centre y se comporte como un bloque, similar a form-container pero aplicado al propio form */
+#formAsignacion {
+    width: 80%;
+    max-width: 900px;
+    margin: 20px auto; /* Centra el formulario */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: none; /* Eliminamos la sombra si no se desea */
+    background-color: transparent; /* Fondo transparente para el formulario */
+    display: flex; /* Para organizar los divs de los campos */
+    flex-wrap: wrap; /* Permite que los divs se envuelvan en varias líneas */
+    justify-content: center; /* Centra los campos horizontalmente */
+    gap: 20px; /* Espacio entre los elementos del formulario */
+}
+
+/* Estilo de los encabezados */
+h1, h2 {
+    color: #4CAF50;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Ajuste para los divs que contienen label y select/input */
+#formAsignacion > div {
+    width: 100%; /* Por defecto, que ocupen todo el ancho disponible del formAsignacion */
+    max-width: 380px; /* Ancho máximo para cada campo */
+}
+
+#formAsignacion label {
+    display: block; /* Para que el label ocupe su propia línea */
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333; /* Color oscuro para el texto del label */
+}
+
+/* Estilo de los inputs y selects */
+#formAsignacion input,
+#formAsignacion select {
+    width: 100%; /* Ocupa el 100% del div que lo contiene */
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: #f9f9f9; /* Fondo claro para los campos */
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+}
+
+/* Efecto al hacer foco en los inputs */
+#formAsignacion input:focus,
+#formAsignacion select:focus {
+    border-color: #4CAF50; /* Borde verde al enfocar */
+    outline: none; /* Elimina el contorno predeterminado del navegador */
+    background-color: #fff; /* Fondo blanco al enfocar */
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Sombra suave al enfocar */
+}
+
+/* Estilo del botón de enviar */
+#formAsignacion button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px; /* Un poco más de padding para el botón */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px; /* Tamaño de fuente ligeramente más grande */
+    margin-top: 20px;
+    transition: background-color 0.3s ease; /* Transición suave */
+    /* Para centrar el botón si el formulario tiene display flex */
+    flex-basis: 100%; /* Ocupa todo el ancho disponible para el botón */
+    margin-left: auto; /* Centra el botón si flex-basis es 100% */
+    margin-right: auto;
+    display: block; /* Para que margin auto funcione */
+}
+
+/* Efecto al pasar el mouse sobre el botón */
+#formAsignacion button[type="submit"]:hover {
+    background-color: #45a049;
+    transform: translateY(-2px); /* Pequeño efecto de elevación */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra al pasar el mouse */
+}
+
+/* Estilo de la tabla y elementos relacionados */
+/* Asegúrate de que tu HTML tenga un elemento con ID 'tablaAsignaciones' o una clase 'grilla' si quieres aplicar estos estilos.
+   Basándome en tu HTML, la tabla tiene ID 'tablaAsignaciones'. */
+#tablaAsignaciones {
+    width: 80%; /* Ocupa un ancho similar al formulario */
+    max-width: 900px;
+    margin: 30px auto; /* Centra la tabla y da espacio */
+    border-collapse: collapse; /* Elimina los espacios entre las celdas */
+    background-color: #fff; /* Fondo blanco para la tabla */
+    border-radius: 8px; /* Bordes redondeados para la tabla */
+    overflow: hidden; /* Asegura que los bordes redondeados se apliquen al contenido */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave para la tabla */
+}
+
+#tablaAsignaciones thead th {
+    background-color: #4CAF50; /* Color de fondo para los encabezados de la tabla */
+    color: white;
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 16px; /* Ajustado para ser más estándar */
+    font-weight: bold;
+    border-bottom: 1px solid #3e8e41; /* Borde inferior para los encabezados */
+}
+
+#tablaAsignaciones tbody td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd; /* Borde inferior para las celdas */
+    color: #333; /* Color de texto oscuro para las celdas */
+    font-size: 14px;
+}
+
+/* Alternar colores de fila para mejor legibilidad */
+#tablaAsignaciones tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Fondo ligeramente diferente para filas pares */
+}
+
+/* Efecto hover en las filas de la tabla */
+#tablaAsignaciones tbody tr:hover {
+    background-color: #f1f1f1; /* Fondo más claro al pasar el mouse */
+    cursor: pointer;
+}
+
+/* Estilo para los separadores entre secciones */
+hr {
+    margin: 40px auto; /* Más espacio y centrado */
+    border: 0;
+    border-top: 1px solid #ccc; /* Línea más suave */
+    width: 80%; /* Ancho similar al formulario y tabla */
+    max-width: 900px;
+}
+
+/* Estilo para los mensajes de error y éxito */
+/* Tu HTML usa un div con ID "mensaje" y clase "mensaje", y tu JS añade 'success' o 'error' */
+#mensaje {
+    padding: 12px;
+    margin: 20px auto; /* Centra el mensaje */
+    border-radius: 6px;
+    font-size: 15px;
+    text-align: center;
+    width: 80%;
+    max-width: 900px;
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+}
+
+#mensaje.error { /* Si tu JS añade la clase 'error' */
+    background-color: #f44336; /* Rojo para errores */
+    color: white;
+}
+
+#mensaje.success { /* Si tu JS añade la clase 'success' */
+    background-color: #4CAF50; /* Verde para éxito */
+    color: white;
+}
+
+/* Estilos para los botones dentro de la tabla (por ejemplo, para eliminar) */
+#tablaAsignaciones button {
+    background-color: #dc3545; /* Rojo para botones de eliminar */
+    color: white;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background-color 0.2s ease;
+}
+
+#tablaAsignaciones button:hover {
+    background-color: #c82333; /* Rojo más oscuro al pasar el mouse */
+}
