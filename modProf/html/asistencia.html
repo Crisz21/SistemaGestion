@@ -4,17 +4,25 @@
     <meta charset="UTF-8">
     <title>Registrar Asistencia</title>
     <link rel="stylesheet" href="../css/asistencia.css">
+    <link rel="stylesheet" href="../css/estilosHeader.css"> 
 </head>
 <body>
-  
+    <header id="header"></header> 
+
     <h1>Registrar Asistencia</h1>
 
-    <!-- Formulario de búsqueda de alumnos -->
     <form id="formBuscarAlumnos">
         <div>
             <label for="idCarrera">Seleccionar Carrera:</label>
             <select name="idCarrera" id="idCarrera" required>
                 <option value="" disabled selected>Selecciona una carrera</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="idMateria">Seleccionar Materia:</label>
+            <select name="idMateria" id="idMateria" required>
+                <option value="" disabled selected>Selecciona una materia</option> 
             </select>
         </div>
 
@@ -38,13 +46,6 @@
             </select>
         </div>
 
-        <div>
-            <label for="idMateria">Seleccionar Materia:</label>
-            <select name="idMateria" id="idMateria" required>
-                <option value="" disabled selected>Selecciona una materia</option>
-            </select>
-        </div>
-
         <button type="submit">Buscar Alumnos</button>
     </form>
 
@@ -65,10 +66,11 @@
             <tbody></tbody>
         </table>
 
-
         <button type="submit">Guardar Asistencia</button>
     </form>
 
     <script src="../js/asistencia.js"></script>
+    <script src="../../scripts/header2.js"></script>
+    <script src="../../../scripts/btnHeader.js?v=1"></script> 
 </body>
 </html>

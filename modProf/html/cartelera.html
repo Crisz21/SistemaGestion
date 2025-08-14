@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Profesor</title>
+    <link rel="stylesheet" href="../css/estilo.css"> <link rel="stylesheet" href="../css/estilosHeader.css">
+    <style>
+        /* Estilos específicos para la cartelera en las vistas de usuario */
+        .container-cartelera {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .mensaje-card {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-left: 5px solid #007bff; /* Un color distintivo */
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .mensaje-card h3 {
+            margin-top: 0;
+            color: #333;
+            font-size: 1.2em;
+        }
+        .mensaje-card p {
+            color: #555;
+            line-height: 1.6;
+        }
+        .mensaje-card small {
+            display: block;
+            margin-top: 10px;
+            color: #888;
+            font-size: 0.85em;
+        }
+        #lista-mensajes p { /* Para el mensaje de "no hay mensajes" */
+            text-align: center;
+            color: #666;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <header id="header"></header>
+
+    <div class="container-cartelera">
+        <h2>📢 Mensajes Importantes de la Cartelera</h2>
+        <div id="lista-mensajes">
+            <p>Cargando mensajes...</p> 
+        </div>
+    </div>
+
+    <script src="../js/header.js"></script> <script src="../js/cartelera_viewer.js"></script> 
+    <script>
+        // Define el rol del usuario para el script de la cartelera
+        // Esto es un ejemplo, debes obtener el rol dinámicamente desde tu sistema de autenticación/sesión
+        // Por ejemplo, si PHP maneja la sesión: <?php echo json_encode(['rol' => $_SESSION['rol']]); ?>
+        // O si sabes que este es el panel del profesor:
+        window.USER_ROLE = 'profesor'; 
+    </script>
+</body>
+</html>

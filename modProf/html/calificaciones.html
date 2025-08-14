@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Registrar y Ver Calificaciones</title>
-    <link rel="stylesheet" href="../css/Estilo.css"> <link rel="stylesheet" href="../css/calificaciones.css"> </head>
+    
+    <link rel="stylesheet" href="../css/calificaciones.css">
+    
+</head>
 <body>
-   
+    <header id="header"></header>
+
     <h1>Registrar y Ver Calificaciones</h1>
 
     <form id="formBuscarAlumnos">
@@ -13,7 +17,14 @@
             <label for="idCarrera">Seleccionar Carrera:</label>
             <select name="idCarrera" id="idCarrera" required>
                 <option value="" disabled selected>Selecciona una carrera</option>
-                </select>
+            </select>
+        </div>
+
+        <div>
+            <label for="idMateria">Seleccionar Materia:</label>
+            <select name="idMateria" id="idMateria" required disabled> 
+                <option value="" disabled selected>Selecciona una materia</option>
+            </select>
         </div>
 
         <div>
@@ -36,19 +47,12 @@
             </select>
         </div>
 
-        <div>
-            <label for="idMateria">Seleccionar Materia:</label>
-            <select name="idMateria" id="idMateria" required>
-                <option value="" disabled selected>Selecciona una materia</option>
-                </select>
-        </div>
-
         <button type="submit" id="buscarAlumnosBtn">Buscar Alumnos</button>
     </form>
 
     <hr>
 
-    <h2>Calificaciones del Curso Seleccionado</h2>
+    <h2>Calificaciones de Cursada</h2>
     <form id="formCalificaciones">
         <table border="1">
             <thead>
@@ -60,19 +64,47 @@
                     <th>Recuperatorio 1</th>
                     <th>Calificación 2</th>
                     <th>Recuperatorio 2</th>
-                    <th>Examen Final</th>
+                    <th>Cursada Aprobada</th>
                 </tr>
             </thead>
-            <tbody id="tablaCalificacionesBody">
-                </tbody>
+            <tbody id="tablaCalificacionesBody"></tbody>
         </table>
 
         <input type="hidden" name="idCurso" id="hiddenIdCurso">
         <input type="hidden" name="idCarrera" id="hiddenIdCarrera">
         <input type="hidden" name="idMateria" id="hiddenIdMateria">
 
-        <button type="submit" id="guardarCalificacionesBtn">Guardar Calificaciones</button>
+        <button type="submit" id="guardarCalificacionesBtn">Guardar Calificaciones de Cursada</button>
     </form>
 
-    <script src="../js/calificaciones.js"></script> </body>
+    <hr>
+
+    <h2>Calificaciones de Mesa de Examen Final</h2>
+    <p>Califique a los alumnos que se han inscrito previamente para rendir el examen final de esta materia.</p>
+    <form id="formCalificacionesFinales">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>DNI</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Nota 1</th> 
+                    <th>Nota 2</th>
+                    <th>Nota 3</th>
+                    <th>Tomo</th>
+                    <th>Folio</th>
+                </tr>
+            </thead>
+            <tbody id="tablaCalificacionesMesaFinalBody">
+            </tbody>
+        </table>
+        <input type="hidden" name="idCursoMesaFinal" id="hiddenIdCursoMesaFinal">
+        <input type="hidden" name="idCarreraMesaFinal" id="hiddenIdCarreraMesaFinal">
+        <input type="hidden" name="idMateriaMesaFinal" id="hiddenIdMateriaMesaFinal">
+        <button type="submit" id="guardarCalificacionesMesaFinalBtn">Guardar Calificaciones de Mesa de Examen Final</button>
+    </form>
+
+    <script src="../../scripts/header2.js"></script>
+    <script src="../../../scripts/btnHeader.js?v=1"></script> 
+</body>
 </html>

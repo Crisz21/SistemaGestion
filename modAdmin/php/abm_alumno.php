@@ -1,11 +1,6 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "sistemaeducativo";
 
-// Establecer la conexión a la base de datos
-$conn = new mysqli($servername, $username, $password, $dbname);
+include 'conexion.php';
 
 // Manejar errores de conexión
 if ($conn->connect_error) {
@@ -31,6 +26,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             $queryLogin = "SELECT * FROM login WHERE idUsuario = '$idUsuario'";
             $resultLogin = $conn->query($queryLogin);
             $loginData = $resultLogin->fetch_assoc();
+
+            // CORRECCIÓN: Renombrar la clave 'contraseña' (con ñ) a 'contrasena' (sin ñ)
+            // para que coincida con lo que el JavaScript espera.
+            if (isset($loginData['contraseña'])) {
+                $loginData['contrasena'] = $loginData['contraseña'];
+                // Opcional: Si quieres eliminar la clave original con 'ñ'
+                // unset($loginData['contraseña']); 
+            }
 
             // Responder con los datos del alumno y login
             header('Content-Type: application/json');
@@ -114,37 +117,37 @@ else if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $localidad = $_POST['localidad'];
         $provincia = $_POST['provincia'];
 
-        // Si estamos editando un alumno (el editar_id está presente)
-        if (isset($_POST['editar_id']) && $_POST['editar_id'] !== '') {
-            $editar_id = $_POST['editar_id'];
+        // Si estamos editando un alumno (el 'editar_id' está presente y no está vacío)
+        // 'editar_id' contendrá el ID original del alumno que se está modificando.
+        if (isset($_POST['editar_id']) && $_POST['editar_id'] !== '') { 
+            $editar_id = $_POST['editar_id']; // ID original del alumno que se está editando
 
-            // Verificar si el ID de usuario que estamos editando es el mismo que el nuevo idUsuario
-            // Si es el mismo, no verificamos si el DNI ya existe
+            // Solo validar si el NUEVO DNI (idUsuario) es DIFERENTE al DNI ORIGINAL (editar_id) del alumno.
+            // Esto evita el error de "DNI ya registrado" cuando el DNI no ha cambiado.
             if ($idUsuario !== $editar_id) {
-                // Validar si ya existe un usuario con ese ID (solo si no estamos editando el mismo usuario)
-                $checkQuery = "SELECT idUsuario FROM usuarios WHERE idUsuario = '$idUsuario' AND idRol = 1"; // Asegurarse de que sea un alumno
+                // Validar si ya existe un usuario con el nuevo DNI (si es diferente al original)
+                $checkQuery = "SELECT idUsuario FROM usuarios WHERE idUsuario = '$idUsuario' AND idRol = 1";
                 $checkResult = $conn->query($checkQuery);
 
-                // Si ya existe un usuario con ese DNI
                 if ($checkResult->num_rows > 0) {
                     header('Content-Type: application/json');
-                    echo json_encode(['success' => false, 'message' => 'El DNI ya está registrado.']);
+                    echo json_encode(['success' => false, 'message' => 'El DNI ya está registrado por otro alumno.']);
                     exit;
                 }
             }
 
-            // Actualizar datos en la tabla `usuarios`
-            $query = "UPDATE usuarios SET apellido='$apellido', nombre='$nombre', telefono='$telefono', telefono2='$telefono2', correo='$correo', 
+            // Actualizar datos en la tabla `usuarios` (usando el ID original para la condición WHERE)
+            $query = "UPDATE usuarios SET idUsuario='$idUsuario', apellido='$apellido', nombre='$nombre', telefono='$telefono', telefono2='$telefono2', correo='$correo', 
                       calle='$calle', nroAltura='$nroAltura', piso='$piso', codigoPostal='$codigoPostal', dpto='$dpto', localidad='$localidad', provincia='$provincia' 
-                      WHERE idUsuario='$editar_id' AND idRol = 1"; // Asegurarse de que el rol sea el correcto
+                      WHERE idUsuario='$editar_id' AND idRol = 1"; // Usar $editar_id en la cláusula WHERE
             if (!$conn->query($query)) {
                 header('Content-Type: application/json');
                 echo json_encode(['success' => false, 'message' => 'Error al actualizar los datos de usuario: ' . $conn->error]);
                 exit;
             }
 
-            // Actualizar datos en la tabla `login`
-            $queryLogin = "UPDATE login SET correo='$correo', contraseña='$contrasena' WHERE idUsuario='$editar_id'";
+            // Actualizar datos en la tabla `login` (usando el ID original para la condición WHERE)
+            $queryLogin = "UPDATE login SET idUsuario='$idUsuario', correo='$correo', contraseña='$contrasena' WHERE idUsuario='$editar_id'"; // Usar $editar_id en la cláusula WHERE
             if (!$conn->query($queryLogin)) {
                 header('Content-Type: application/json');
                 echo json_encode(['success' => false, 'message' => 'Error al actualizar los datos de login: ' . $conn->error]);
@@ -152,11 +155,10 @@ else if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
 
         } else {
-            // Para la inserción de un nuevo alumno, se debe validar si ya existe un usuario con ese ID
-            $checkQuery = "SELECT idUsuario FROM usuarios WHERE idUsuario = '$idUsuario' AND idRol = 1"; // Asegurarse de que sea un alumno
+            // Para la inserción de un nuevo alumno, SIEMPRE se debe validar si ya existe un usuario con ese ID
+            $checkQuery = "SELECT idUsuario FROM usuarios WHERE idUsuario = '$idUsuario' AND idRol = 1";
             $checkResult = $conn->query($checkQuery);
 
-            // Si no estamos editando (no se pasa `editar_id`), validamos si el ID ya existe
             if ($checkResult->num_rows > 0) {
                 header('Content-Type: application/json');
                 echo json_encode(['success' => false, 'message' => 'El DNI ya está registrado.']);
@@ -174,7 +176,7 @@ else if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             // Insertar en la tabla `login`
             $queryLogin = "INSERT INTO login (idUsuario, correo, contraseña) 
-                           VALUES ('$idUsuario', '$correo', '$contrasena')";
+                            VALUES ('$idUsuario', '$correo', '$contrasena')";
             if (!$conn->query($queryLogin)) {
                 header('Content-Type: application/json');
                 echo json_encode(['success' => false, 'message' => 'Error al insertar en login: ' . $conn->error]);

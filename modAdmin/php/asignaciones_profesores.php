@@ -1,33 +1,52 @@
 <?php
 header('Content-Type: application/json');
 
-// Tu conexión original
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "sistemaeducativo";
+include 'conexion.php';
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-$conn->set_charset("utf8");
-
-if ($conn->connect_error) {
-    echo json_encode(["success" => false, "mensaje" => "Conexión fallida: " . $conn->connect_error]);
-    exit;
-}
 
 $accion = $_GET['accion'] ?? ($_POST['accion'] ?? 'asignar');
 
-// Acción para obtener las carreras
+// Acción para obtener los profesores (con filtro por DNI)
 if ($accion === 'profesores') {
-    $res = $conn->query("SELECT idUsuario AS id, CONCAT(apellido, ', ', nombre, ' (DNI: ', idUsuario, ')') AS nombre FROM usuarios WHERE idRol = 2");
-    echo json_encode($res->fetch_all(MYSQLI_ASSOC));
+    $dniFiltro = $_GET['dni'] ?? null; // Obtener DNI si viene en la URL
+
+    if ($dniFiltro) {
+        // Si se proporciona DNI, filtrar los profesores por idUsuario (DNI) usando LIKE para búsqueda parcial
+        $dniFiltro = '%' . $dniFiltro . '%'; 
+        
+        $stmt = $conn->prepare("SELECT idUsuario AS id, CONCAT(apellido, ', ', nombre, ' (DNI: ', idUsuario, ')') AS nombre 
+                                 FROM usuarios 
+                                 WHERE idRol = 2 AND CAST(idUsuario AS CHAR) LIKE ?"); // idRol = 2 para profesores
+        $stmt->bind_param("s", $dniFiltro);
+        $stmt->execute();
+        $res = $stmt->get_result();
+        echo json_encode($res->fetch_all(MYSQLI_ASSOC));
+        $stmt->close();
+    } else {
+        // Si no se proporciona DNI, devolver todos los profesores (comportamiento original)
+        $res = $conn->query("SELECT idUsuario AS id, CONCAT(apellido, ', ', nombre, ' (DNI: ', idUsuario, ')') AS nombre FROM usuarios WHERE idRol = 2");
+        echo json_encode($res->fetch_all(MYSQLI_ASSOC));
+    }
     exit;
 }
 
 // Acción para obtener las materias
 if ($accion === 'materias') {
-    $res = $conn->query("SELECT idMateria AS id, nombre FROM materias");
-    echo json_encode($res->fetch_all(MYSQLI_ASSOC));
+    $idCarrera = $_GET['idCarrera'] ?? null;
+
+    if ($idCarrera) {
+        $stmt = $conn->prepare("SELECT idMateria AS id, nombre 
+                                 FROM materias 
+                                 WHERE idCarrera = ?");
+        $stmt->bind_param("i", $idCarrera);
+        $stmt->execute();
+        $res = $stmt->get_result();
+        echo json_encode($res->fetch_all(MYSQLI_ASSOC));
+        $stmt->close();
+    } else {
+        $res = $conn->query("SELECT idMateria AS id, nombre FROM materias");
+        echo json_encode($res->fetch_all(MYSQLI_ASSOC));
+    }
     exit;
 }
 

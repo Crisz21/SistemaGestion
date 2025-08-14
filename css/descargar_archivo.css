@@ -1,0 +1,138 @@
+/* Estilos generales para el cuerpo */
+body {
+    font-family: "Segoe UI", sans-serif;
+    background-color: #F1D5D5;  /* Fondo suave */
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor para el formulario de descargar archivo */
+.descargar-form-container {
+    width: 80%;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);  /* Sombra suave para resaltar el formulario */
+    background-color: #ffffff;  /* Fondo blanco para el formulario */
+    border: none;
+}
+
+/* Título principal para el formulario de descargar archivo */
+.descargar-form-container h1 {
+    color: #4CAF50;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 32px;  /* Tamaño grande para el título */
+}
+
+/* Estilos para la lista de archivos disponibles para descargar */
+.descargar-file-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.descargar-file-list li {
+    margin-bottom: 20px;  /* Espaciado más grande entre los elementos */
+    font-size: 16px;
+}
+
+/* Estilo de los botones de descarga */
+.descargar-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;  /* Tamaño de botón más grande */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+    text-align: center;
+}
+
+/* Efecto hover para el botón de descarga */
+.descargar-button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);  /* Efecto de crecimiento al pasar el cursor */
+}
+
+/* Mensajes de error si no hay archivos disponibles */
+.descargar-message {
+    padding: 15px;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 6px;
+    background-color: #f44336;  /* Fondo rojo para el error */
+    color: white;
+    font-weight: bold;
+}
+
+/* Efecto de mensaje de error */
+.descargar-message.error {
+    background-color: #f44336;
+}
+
+/* Estilo para la tabla */
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    background-color: transparent;  /* Fondo transparente */
+    font-size: 16px;
+}
+
+/* Encabezados de la tabla */
+th {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    text-align: left;
+    font-size: 16px;
+    border: none; /* Eliminamos borde */
+}
+
+/* Celdas de la tabla */
+td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd; /* Línea de separación entre filas */
+}
+
+tr:hover {
+    background-color: #f1f1f1;  /* Efecto hover en las filas */
+    cursor: pointer;
+}
+
+/* Estilo de los botones dentro de la tabla */
+button.view-btn {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+button.view-btn:hover {
+    background-color: #45a049;
+}
+
+button.delete-btn {
+    padding: 8px 16px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+button.delete-btn:hover {
+    background-color: #d32f2f;
+}

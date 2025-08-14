@@ -7,6 +7,7 @@ $(document).ready(function(){
         data: {accion: "ObtenerMateriasAlumno"},
         dataType: "json",
         success: function(data) {
+          console.log(data);
           const tabla = document.getElementById("datos");
           data.forEach(fila => {
             const row = document.createElement("tr");

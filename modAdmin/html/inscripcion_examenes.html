@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscripción a Exámenes Finales</title>
+    <link rel="stylesheet" href="../css/inscripcion_examenes.css">
+    <link rel="stylesheet" href="../css/estilosHeader.css">
+</head>
+<body>
+    <header id="header"></header>
+    <div class="container">
+        <h1>Inscripción a Exámenes Finales</h1>
+
+        <div id="mensaje" class="mensaje"></div>
+
+        <form id="formInscripcion">
+            <input type="hidden" id="editar_id" name="editar_id">
+
+            <div class="form-group">
+                <label for="idCarrera">Carrera:</label>
+                <select id="idCarrera" name="idCarrera" required>
+                    <option value="">Selecciona una Carrera</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="idMateria">Materia:</label>
+                <select id="idMateria" name="idMateria" required>
+                    <option value="">Selecciona una Materia</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="filtroDNI">Filtrar Alumno por DNI:</label>
+                <input type="text" id="filtroDNI" placeholder="Introduce DNI del alumno">
+            </div>
+
+            <div class="form-group">
+                <label for="idAlumno">Alumno:</label>
+                <select id="idAlumno" name="idAlumno" required>
+                    <option value="">Selecciona un Alumno</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="idExamen">Examen Disponible:</label>
+                <select id="idExamen" name="idExamen" required>
+                    <option value="">Selecciona un Examen</option>
+                </select>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Inscribir Alumno</button>
+        </form>
+
+        <hr>
+
+        <h2>Inscripciones Existentes</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID Insc.</th>
+                    <th>Alumno</th>
+                    <th>Carrera</th>
+                    <th>Materia</th>
+                    <th>Fecha Examen</th>
+                    <th>Hora Examen</th>
+                    <th>Año/División Curso</th>
+                    <th>Llamado</th>
+                    <th>Fecha Inscripción</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="tablaInscripciones">
+            </tbody>
+        </table>
+    </div>
+
+    <script src="../js/inscripcion_examenes.js"></script>
+</body>
+</html>

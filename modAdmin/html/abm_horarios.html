@@ -4,36 +4,37 @@
     <meta charset="UTF-8">
     <title>Asignar Horario</title>
     <link rel="stylesheet" href="../css/abm_horarios.css">
+    <link rel="stylesheet" href="../css/estilosHeader.css">
     <script src="../js/abm_horarios.js" defer></script>
 </head>
 <body>
+    <header id="header"></header>
+
     <h1>Asignar Horario a Materia</h1>
 
-    <!-- Mensajes de éxito o error -->
     <div class="success" id="success" style="display: none;"></div>
     <div class="error" id="error" style="display: none;"></div>
 
-    <!-- Formulario para asignar horarios -->
     <form method="POST" action="../php/abm_horarios.php" id="horarioForm">
+        <input type="hidden" name="idHorario" id="idHorario">
+
         <div>
             <label for="idCarrera">Carrera:</label>
             <select name="idCarrera" id="idCarrera" required>
                 <option value="">Seleccione una carrera</option>
-                <!-- Las carreras se cargarán con JavaScript -->
-            </select>
+                </select>
         </div>
 
         <div>
             <label for="idMateria">Materia:</label>
             <select name="idMateria" id="idMateria" required>
                 <option value="">Seleccione una materia</option>
-                <!-- Las materias se cargarán con JavaScript -->
-            </select>
+                </select>
         </div>
 
         <div>
             <label for="diaSemana">Día de la semana:</label>
-            <select name="diaSemana" required>
+            <select name="diaSemana" id="diaSemana" required>
                 <option value="Lunes">Lunes</option>
                 <option value="Martes">Martes</option>
                 <option value="Miércoles">Miércoles</option>
@@ -44,18 +45,18 @@
 
         <div>
             <label for="horaInicio">Hora de inicio:</label>
-            <input type="time" name="horaInicio" required>
+            <input type="time" name="horaInicio" id="horaInicio" required>
         </div>
 
         <div>
             <label for="horaFin">Hora de fin:</label>
-            <input type="time" name="horaFin" required>
+            <input type="time" name="horaFin" id="horaFin" required>
         </div>
 
         <div>
             <label for="año">Año:</label>
-            <select name="año" required>
-                <option value="">Seleccione un año</option> <!-- Opción predeterminada -->
+            <select name="año" id="año" required>
+                <option value="">Seleccione un año</option>
                 <option value="1er año">1er año</option>
                 <option value="2do año">2do año</option>
                 <option value="3er año">3er año</option>
@@ -64,8 +65,8 @@
 
         <div>
             <label for="division">División:</label>
-            <select name="division" required>
-                <option value="">Seleccione una división</option> <!-- Opción predeterminada -->
+            <select name="division" id="division" required>
+                <option value="">Seleccione una división</option>
                 <option value="1ro">1ro</option>
                 <option value="2do">2do</option>
                 <option value="3ro">3ro</option>
@@ -74,6 +75,7 @@
 
         <div>
             <button type="submit" name="guardar">Guardar</button>
+            <button type="button" id="cancelEdit" style="display:none;">Cancelar Edición</button>
         </div>
     </form>
 
@@ -94,9 +96,9 @@
             </tr>
         </thead>
         <tbody id="horariosTable">
-            <!-- Los horarios se cargarán con JavaScript -->
-        </tbody>
+            </tbody>
     </table>
 
+    <script src="../js/header.js"></script>
 </body>
 </html>

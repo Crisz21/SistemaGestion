@@ -4,20 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrar Profesor</title>
-    <link rel="stylesheet" href="../css/abm_profesor.css">
+    <link rel="stylesheet" href="../css/abm_profesor.css"> <link rel="stylesheet" href="../css/estilosHeader.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <h1>Registrar Profesor</h1>
+    <header id="header"></header> 
 
-    <!-- Mostrar mensajes de éxito o error -->
+    <h1>Registrar Profesor</h1>
+    
     <div id="responseMessage"></div>
 
-    <!-- Formulario de alta o edición de profesor -->
     <form id="profesorForm" method="POST">
         <input type="hidden" name="editar_id" id="editar_id">
 
-        <!-- Campos del formulario -->
         <div>
             <label for="idUsuario">DNI (ID):</label>
             <input type="text" name="idUsuario" id="idUsuarioInput" required>
@@ -101,9 +100,8 @@
             </select>
         </div>
 
-        <!-- Botón de guardar -->
         <div>
-            <button type="submit" id="guardarBtn">Guardar</button>
+            <button type="submit" id="guardarBtn">Guardar Profesor</button>
         </div>
     </form>
 
@@ -135,10 +133,10 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Filas dinámicamente generadas desde JavaScript -->
-        </tbody>
+            </tbody>
     </table>
 
     <script src="../js/abm_profesor.js"></script>
+    <script src="../js/header.js"></script>
 </body>
 </html>

@@ -68,46 +68,77 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     }
 
-    // Función para agregar la opción por defecto a un select si no existe
-    function agregarOpcionPorDefecto(selectElement, texto) {
+    // Función para agregar la opción por defecto a un select
+    // SOLO SI NO TIENE O NO ESTÁ SELECCIONADA UNA OPCIÓN VÁLIDA
+    function ensureDefaultOption(selectElement, defaultText) {
+        // Si el select ya tiene opciones y la primera no es vacía, o si ya tiene una seleccionada
         if (selectElement.options.length === 0 || selectElement.options[0].value !== '') {
             const defaultOption = document.createElement('option');
             defaultOption.value = '';
-            defaultOption.textContent = texto;
+            defaultOption.textContent = defaultText;
             selectElement.insertBefore(defaultOption, selectElement.firstChild);
         }
+        selectElement.value = ''; // Asegurarse de que esté seleccionada la opción por defecto
+    }
+
+    // Función general para cargar selects (ahora con soporte para idCarrera para materias)
+    function cargarSelect(accion, selectElement, paramId = null) {
+        let url = `../php/examenes_finales.php?accion=${accion}`;
+        if (paramId && accion === 'cargar_materias') {
+            url += `&idCarrera=${paramId}`;
+        }
+        
+        // Limpiar el select antes de cargar nuevas opciones (solo para materias y carreras)
+        if (accion === 'cargar_carreras' || accion === 'cargar_materias') {
+             selectElement.innerHTML = ''; // Limpiar completamente para recargar
+        }
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                let defaultText = '';
+                if (accion === 'cargar_carreras') defaultText = 'Selecciona una carrera';
+                else if (accion === 'cargar_materias') defaultText = 'Selecciona una materia';
+
+                // Añadir la opción por defecto solo si es para carrera o materia y se limpió
+                if (accion === 'cargar_carreras' || accion === 'cargar_materias') {
+                    const defaultOption = document.createElement('option');
+                    defaultOption.value = '';
+                    defaultOption.textContent = defaultText;
+                    selectElement.appendChild(defaultOption);
+                }
+                
+                data.forEach(item => {
+                    const option = document.createElement('option');
+                    // Asegúrate de que el 'id' sea el nombre de la columna del ID en tu BD
+                    // y 'nombre' el de la columna del nombre.
+                    // Usar idCarrera o idMateria dependiendo del tipo de datos
+                    option.value = item.idCarrera || item.idMateria; 
+                    option.textContent = item.nombre;
+                    selectElement.appendChild(option);
+                });
+            });
     }
 
     // Cargar carreras al cargar la página
-    fetch('../php/examenes_finales.php?accion=cargar_carreras')
-        .then(response => response.json())
-        .then(data => {
-            agregarOpcionPorDefecto(selectCarrera, 'Selecciona una carrera');
-            data.forEach(carrera => {
-                const option = document.createElement('option');
-                option.value = carrera.idCarrera;
-                option.textContent = carrera.nombre;
-                selectCarrera.appendChild(option);
-            });
-        });
+    cargarSelect('cargar_carreras', selectCarrera);
 
-    // Cargar materias al cargar la página
-    fetch('../php/examenes_finales.php?accion=cargar_materias')
-        .then(response => response.json())
-        .then(data => {
-            agregarOpcionPorDefecto(selectMateria, 'Selecciona una materia');
-            data.forEach(materia => {
-                const option = document.createElement('option');
-                option.value = materia.idMateria;
-                option.textContent = materia.nombre;
-                selectMateria.appendChild(option);
-            });
-        });
+    // *** NUEVO: Event Listener para el cambio en el select de carreras ***
+    selectCarrera.addEventListener('change', () => {
+        const idCarreraSeleccionada = selectCarrera.value;
+        if (idCarreraSeleccionada) {
+            cargarSelect('cargar_materias', selectMateria, idCarreraSeleccionada);
+        } else {
+            // Si no hay carrera seleccionada, limpiar el select de materias
+            selectMateria.innerHTML = '<option value="">Selecciona una materia</option>';
+        }
+    });
+    // *** FIN NUEVO ***
 
-    // Agregar las opciones por defecto a los otros selects
-    agregarOpcionPorDefecto(selectAño, 'Selecciona un año');
-    agregarOpcionPorDefecto(selectDivision, 'Selecciona una división');
-    agregarOpcionPorDefecto(selectLlamado, 'Selecciona un llamado');
+    // Asegurar que los otros selects tengan su opción por defecto al cargar
+    ensureDefaultOption(selectAño, 'Selecciona un año');
+    ensureDefaultOption(selectDivision, 'Selecciona una división');
+    ensureDefaultOption(selectLlamado, 'Selecciona un llamado');
 
     // Cargar la tabla de exámenes al cargar la página inicial
     cargarTablaExamenes();
@@ -145,6 +176,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 mostrarMensaje('success', data.success);
                 formulario.reset();
                 document.getElementById('editar_id').value = ''; // Limpiar el ID de edición
+                
+                // Restablecer los selects después de guardar
+                selectCarrera.value = '';
+                selectMateria.innerHTML = '<option value="">Selecciona una materia</option>'; // Limpiar materias
+                ensureDefaultOption(selectAño, 'Selecciona un año');
+                ensureDefaultOption(selectDivision, 'Selecciona una división');
+                ensureDefaultOption(selectLlamado, 'Selecciona un llamado');
+
                 cargarTablaExamenes(); // Volver a cargar la tabla después de guardar
             } else if (data.error) {
                 mostrarMensaje('error', data.error);
@@ -175,7 +214,9 @@ document.addEventListener('DOMContentLoaded', function() {
     function cargarDatosExamen(idExamen) {
         // Resetear los selects a la opción por defecto
         selectCarrera.value = '';
-        selectMateria.value = '';
+        selectMateria.innerHTML = '<option value="">Selecciona una materia</option>'; // Limpiar materias
+
+        // Se rellenarán con los datos del examen a editar
         selectAño.value = '';
         selectDivision.value = '';
         selectLlamado.value = '';
@@ -184,8 +225,16 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(response => response.json())
             .then(data => {
                 if (data) {
+                    // Seleccionar la carrera y luego cargar las materias correspondientes
                     selectCarrera.value = data.idCarrera;
-                    selectMateria.value = data.idMateria;
+                    // Asegurarse de que el cambio dispare la carga de materias
+                    // Esto puede hacerse simulando un evento 'change' o llamando directamente a cargarSelect
+                    cargarSelect('cargar_materias', selectMateria, data.idCarrera)
+                        .then(() => {
+                            // Una vez que las materias estén cargadas, selecciona la materia del examen
+                            selectMateria.value = data.idMateria;
+                        });
+                    
                     document.getElementById('fecha').value = data.fecha;
                     document.getElementById('hora').value = data.hora;
                     selectAño.value = data.año;

@@ -1,100 +1,87 @@
-//Este script muestra o oculta los botones segun la ruta donde este el usuario, lo hace con un switch comparando las URL con el metodo
-//pathname
-$(window).on('load',function(){
-    var $btnInicio = $("#btnAtras");
-    var $btnSalir = $("#btnSalir");
-    console.log($btnInicio.length);
-    function mostrarSalir(){
-      $btnInicio.hide();
-      $btnSalir.show();
-    }
-  
-    function mostrarInicio(){
-      $btnInicio.show();
-      $btnSalir.hide();
-    }
-    function LimpiarFormularios(){
-      var formularios = document.querySelectorAll('form');
-      formularios.forEach(function(formulario){
-        formulario.reset();
-      })
-    };
+$(window).on('load', function() {
+  var $btnInicio = $("#btnAtras");
+  var $btnSalir = $("#btnSalir");
+  // Objeto que mapea rutas con acciones
+  var rutaAcciones = {
 
-    var rutasSalir=[
-      "/modAlum/lobbyEstudiante.html",
-      "/modAlum/panel_administrativo.html",
-      "/modProf/panel_profesor.html"
-    ];
+    //Mapeo de rutas Alumno
+    "/modAlum/lobbyEstudiante.html": "mostrarSalir",
+    "/modProf/html/panel_profesor.html": "mostrarSalir",
+    "/modAlum/ALM_materias.html": "mostrarInicio",
+    "/modAlum/CalendarioC.html": "mostrarInicio",
+    "/modAlum/HistorialNotas.html": "mostrarInicio",
+    "/modAlum/InfoAlum.html": "mostrarInicio",
+    "/modAlum/DocAlum.html": "mostrarInicio",
 
+    //mapeo de rutas Administrativo
+    "/modAdmin/html/panel_administrativo.html": "mostrarSalir",
+    "/modAdmin/html/abm_alumno.html":"mostrarInicio",
+    "/modAdmin/html/abm_carrera.html":"mostrarInicio",
+    "/modAdmin/html/abm_horarios.html":"mostrarInicio",
+    "/modAdmin/html/abm_materias.html":"mostrarInicio",
+    "/modAdmin/html/abm_profesor.html":"mostrarInicio",
+    "/modAdmin/html/asignaciones_alumnos.html":"mostrarInicio",
+    "/modAdmin/html/asignaciones_profesores.html":"mostrarInicio",
+    "/modAdmin/html/descargar_archivo.html":"mostrarInicio",
+    "/modAdmin/html/examenes_finales.html":"mostrarInicio",
+    "/modAdmin/html/subir_archivo.html":"mostrarInicio",
+
+    //Mapeo de rutas Profesor
+    "modProf/html/asistencia.html":"mostrarInicio",
+    "modProf/html/calendario.html":"mostrarInicio",
+    "modProf/html/calificaciones.html":"mostrarInicio",
+    "modProf/html/formulario_profesor.html":"mostrarInicio",
+    "modProf/html/panel_profesor.html":"mostrarSalir"
+  };
+
+  // Función para mostrar u ocultar botones según la ruta
+  function mostrarBotones() {
     var rutaActual = window.location.pathname;
-    /*
-    switch(rutaActual){
-        case "/modAlum/lobbyEstudiante.html":
-        mostrarSalir();
-        console.log("deberia mostrar el boton, al menos esta adentro del switch")
-        case "/":
-          LimpiarFormularios();
-        break;
-        case "/modAlum/ALM_materias.html":
-        mostrarInicio();
-        console.log("deberia mostrar el boton, al menos esta adentro del switch")
-        break;
-        case "/modAlum/CalendarioC.html":
-        mostrarInicio();
-        break;
-        case "/modAlum/HistorialNotas.html":
-          console.log("deberia mostrar el boton, al menos esta adentro del switch")
-        mostrarInicio();
-        break;
-        case "/modAlum/InfoAlum.html":
-        mostrarInicio();
-        break;
-        case "/modAlum/DocAlum.html":
-        mostrarInicio();
-        break;
-    }
-    */
-    $btnSalir.on("click", function(){
-      window.history.go(-window.history.length);
-      window.localStorage.clear();
-      window.location.replace('/');
-      
-      /*window.open('/','self');
-      window.close;*/
-     
-    });
-  
-    $btnInicio.on("click", function(){
-      window.location.href = "../modAlum/lobbyEstudiante.html";
-    });
-  });
-/*window.onload = function(){
-    var btnInicio = document.getElementById("btnAtras");
-    var btnSalir = document.getElementById("btnSalir");
-    
-    function mostrarSalir(){
-        btnInicio.style.display="none";
-        btnSalir.style.display="block";
-    }
-    function mostrarInicio(){
-        btnInicio.style.display="block";
-        btnSalir.style.display="none";
-    }
-    const rutaActual = window.location.pathname;
-    
-            switch(rutaActual){
-                case "/lobbyEstudiante.html": mostrarSalir()
-                    break;
-                case "/ALM_materias.html": mostrarInicio()
-                    break;
-            }
+    var accion = rutaAcciones[rutaActual];
 
-            btnSalir.addEventListener("click",function(){
-                window.location.href="/";
-            })
-            btnInicio.addEventListener("click", function(){
-                window.location.href="/lobbyEstudiante.html"
-            })
-    
-    
-};*/
+    if (accion === "mostrarSalir") {
+      mostrarSalir();
+    } else if (accion === "mostrarInicio") {
+      mostrarInicio();
+    } else {
+      // Si no se encuentra la ruta en el objeto, puedes mostrar un botón por defecto
+      // mostrarInicio(); // Descomenta esta línea si deseas mostrar el botón inicio por defecto
+    }
+  }
+
+  // Funciones para mostrar u ocultar botones
+  function mostrarSalir() {
+    $btnInicio.hide();
+    $btnSalir.show();
+  }
+
+  function mostrarInicio() {
+    $btnInicio.show();
+    $btnSalir.hide();
+  }
+
+  // Limpia formularios si se encuentra en la ruta raíz
+  function LimpiarFormularios() {
+    if (window.location.pathname === "/") {
+      var formularios = document.querySelectorAll('form');
+      formularios.forEach(function(formulario) {
+        formulario.reset();
+      });
+    }
+  }
+
+  // Eventos para los botones
+  $btnSalir.on("click", function() {
+    window.history.go(-window.history.length);
+    window.localStorage.clear();
+    window.location.replace('/');
+  });
+
+  $btnInicio.on("click", function() {
+    window.location.href = "../modAlum/lobbyEstudiante.html";
+  });
+
+  // Ejecuta la función para mostrar botones según la ruta
+  mostrarBotones();
+  LimpiarFormularios();
+});

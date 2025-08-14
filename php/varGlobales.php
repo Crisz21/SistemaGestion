@@ -3,7 +3,7 @@ session_start();
 $nomUser = $_SESSION['nomUser'];
 $idUsuario = $_SESSION['idUsuario'];
 $apellidoUser = $_SESSION['apellidoUser'];
-$idRolUser = $_SESSION['rolUser'];
+$idRolUser = $_SESSION['idRol'];
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     

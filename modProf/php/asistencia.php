@@ -1,18 +1,7 @@
 <?php
-// Configuración de la conexión a la base de datos
-$servername = "localhost";   
-$username = "root";          
-$password = "";              
-$dbname = "sistemaeducativo"; 
 
-// Crear la conexión a la base de datos
-$conn = new mysqli($servername, $username, $password, $dbname);
+include 'conexion.php';
 
-// Verificar la conexión
-if ($conn->connect_error) {
-    // Si hay un error en la conexión, se devuelve un JSON con el mensaje de error y se termina la ejecución.
-    die(json_encode(["error" => "Conexión fallida: " . $conn->connect_error]));
-}
 
 /**
  * Función para obtener todas las carreras de la base de datos.
@@ -33,20 +22,48 @@ function obtenerCarreras(mysqli $conn): array
 }
 
 /**
- * Función para obtener todas las materias de la base de datos.
+ * Función para obtener las materias de la base de datos, opcionalmente filtradas por carrera.
+ * Esta versión asume que la tabla 'materias' tiene directamente la columna 'idCarrera'.
  * @param mysqli $conn Objeto de conexión a la base de datos.
+ * @param int|null $idCarrera El ID de la carrera para filtrar las materias.
  * @return array Un array de objetos con los datos de las materias.
  */
-function obtenerMaterias(mysqli $conn): array
+function obtenerMaterias(mysqli $conn, ?int $idCarrera = null): array
 {
-    $sql_materias = "SELECT idMateria, nombre FROM materias ORDER BY nombre ASC"; // Ordenar para mejor visualización
-    $result_materias = $conn->query($sql_materias);
     $materias = [];
+    $sql_materias = "SELECT idMateria, nombre FROM materias"; // Consulta inicial
+    $types = "";
+    $params = [];
+
+    if ($idCarrera !== null) {
+        // Añadir la condición WHERE directamente en la tabla materias
+        $sql_materias .= " WHERE idCarrera = ?"; 
+        $types = "i"; // 'i' para entero
+        $params[] = $idCarrera;
+    }
+    $sql_materias .= " ORDER BY nombre ASC"; // Ordenar para mejor visualización
+
+    $stmt = $conn->prepare($sql_materias);
+    if (!$stmt) {
+        error_log("Error al preparar la consulta de materias: " . $conn->error);
+        // Podrías devolver un mensaje de error más específico si lo deseas
+        return [];
+    }
+
+    if ($idCarrera !== null) {
+        // Solo enlazar parámetros si idCarrera no es nulo
+        $stmt->bind_param($types, ...$params);
+    }
+    
+    $stmt->execute();
+    $result_materias = $stmt->get_result();
+
     if ($result_materias) {
         while ($row = $result_materias->fetch_assoc()) {
             $materias[] = $row;
         }
     }
+    $stmt->close();
     return $materias;
 }
 
@@ -83,6 +100,8 @@ function obtenerAlumnos(int $idCurso, ?int $idMateria, mysqli $conn): array
     }
 
     // Usar call_user_func_array para bind_param con un array de parámetros
+    // Esta forma es para compatibilidad con versiones antiguas o cuando los parámetros son dinámicos.
+    // Con PHP 5.6+ y el operador '...' (splat operator), se simplifica como `$stmt->bind_param($types, ...$params);`
     $stmt->bind_param($types, ...$params);
 
     $stmt->execute();
@@ -170,7 +189,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 break;
 
             case 'obtenerMaterias':
-                $materias = obtenerMaterias($conn);
+                // Recoger el idCarrera si viene en la solicitud
+                $idCarrera = filter_var($_POST['idCarrera'] ?? null, FILTER_VALIDATE_INT);
+                $materias = obtenerMaterias($conn, $idCarrera); // Pasar el idCarrera a la función
                 echo json_encode($materias);
                 break;
 

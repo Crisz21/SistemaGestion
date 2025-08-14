@@ -1,15 +1,7 @@
 <?php
-// Conectar a la base de datos
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "sistemaeducativo";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+include 'conexion.php';
 
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
 
 // Agregar carrera (POST request)
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['accion']) && $_POST['accion'] == 'agregar') {

@@ -1,0 +1,159 @@
+/* Cuerpo y configuraciones generales */
+body {
+    font-family: "Segoe UI", sans-serif;
+    background-color: #F1D5D5;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo para el contenedor principal */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Título principal */
+h1 {
+    text-align: center;
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Mensajes de éxito y error */
+.error, .success {
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+/* Alineación de los campos y labels */
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;  /* Espaciado entre los campos */
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+/* Ajustes para que los inputs no sean demasiado grandes */
+.input-item {
+    width: 100%;
+    max-width: 380px; /* Establece un ancho máximo para los inputs */
+    padding: 8px;
+}
+
+/* Estilo de las etiquetas de los inputs */
+.input-item label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* Estilo de los inputs y selects */
+.input-item input,
+.input-item select {
+    width: 100%; /* Los campos de entrada ocupan todo el ancho disponible */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: #f9f9f9;
+}
+
+/* Efecto al hacer foco en los inputs */
+.input-item input:focus,
+.input-item select:focus {
+    border-color: #4CAF50;
+    outline: none;
+    background-color: #fff;
+}
+
+/* Estilo del placeholder */
+.input-item input::placeholder,
+.input-item select {
+    color: #aaa;
+}
+
+/* Botón "Guardar" más pequeño y alineado a la derecha */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 20px;
+    align-self: flex-end;
+    transition: background-color 0.3s;
+}
+
+/* Efecto al pasar el mouse sobre el botón */
+button:hover {
+    background-color: #45a049;
+}
+
+/* Estilo de la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 16px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Estilo para la fila de acciones (botón eliminar) */
+td button {
+    background-color: #f44336;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+/* Efecto al pasar el mouse sobre el botón eliminar */
+td button:hover {
+    background-color: #e53935;
+}

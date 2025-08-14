@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <title>Formulario de Información del Profesor</title>
     <link rel="stylesheet" href="../css/formulario_profesor.css">
-    <script src="../js/formulario_profesor.js" defer></script> <!-- Incluir archivo JS -->
+    <link rel="stylesheet" href="../css/estilosHeader.css">
+    <script src="../js/formulario_profesor.js" defer></script>
+    <script src="../js/header.js" defer></script>
 </head>
 <body>
+    <header id="header"></header>
+
     <div class="form-container">
         <h1>Información del Profesor</h1>
 
-        <!-- Formulario para ver los datos -->
         <form id="formProfesor">
-            <!-- Usuario y Contraseña -->
             <div class="input-group horizontal">
                 <div class="input-item">
                     <label for="idUsuario">ID de Usuario</label>
@@ -24,7 +26,6 @@
                 </div>
             </div>
 
-            <!-- Nombre y Apellido -->
             <div class="input-group horizontal">
                 <div class="input-item">
                     <label for="nombre">Nombre</label>
@@ -36,7 +37,6 @@
                 </div>
             </div>
 
-            <!-- Teléfono y Dirección -->
             <div class="input-group horizontal">
                 <div class="input-item">
                     <label for="telefono">Teléfono</label>
@@ -48,7 +48,6 @@
                 </div>
             </div>
 
-            <!-- Piso, Dpto y Localidad -->
             <div class="input-group horizontal">
                 <div class="input-item">
                     <label for="piso">Piso</label>
@@ -60,7 +59,6 @@
                 </div>
             </div>
 
-            <!-- Código Postal y Localidad -->
             <div class="input-group horizontal">
                 <div class="input-item">
                     <label for="codigoPostal">Código Postal</label>
@@ -72,7 +70,6 @@
                 </div>
             </div>
 
-            <!-- Provincia y Carrera -->
             <div class="input-group horizontal">
                 <div class="input-item">
                     <label for="provincia">Provincia</label>
@@ -84,7 +81,6 @@
                 </div>
             </div>
 
-            <!-- Contraseña -->
             <div class="input-group horizontal">
                 <div class="input-item">
                     <label for="contrasena">Contraseña</label>
@@ -93,5 +89,7 @@
             </div>
         </form>
     </div>
+    <script src="../../scripts/header2.js"></script>
+    <script src="../../../scripts/btnHeader.js?v=1"></script> 
 </body>
 </html>

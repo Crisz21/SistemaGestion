@@ -4,22 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asignar Alumno a Curso</title>
-    <link rel="stylesheet" href="../css/asignaciones_alumnos.css"> <!-- Estilos -->
+    <link rel="stylesheet" href="../css/asignaciones_alumnos.css">
+    <link rel="stylesheet" href="../css/estilosHeader.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 
+    <header id="header"></header>
+
     <h1>Asignar Alumno a Curso</h1>
 
-    <!-- Mensaje de éxito o error -->
     <div id="mensaje"></div>
 
-    <!-- Formulario para asignar alumno a curso -->
     <form id="formAsignacion">
         <div>
             <label for="idCarrera">Seleccionar Carrera:</label>
             <select name="idCarrera" id="idCarrera" required>
                 <option value="" disabled selected>Selecciona una carrera</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="idMateria">Seleccionar Materia:</label>
+            <select name="idMateria" id="idMateria" required>
+                <option value="" disabled selected>Selecciona una materia</option>
             </select>
         </div>
 
@@ -43,11 +51,10 @@
             </select>
         </div>
 
-        <div>
-            <label for="idMateria">Seleccionar Materia:</label>
-            <select name="idMateria" id="idMateria" required>
-                <option value="" disabled selected>Selecciona una materia</option>
-            </select>
+        <div class="dni-filter-group">
+            <label for="filtroDni">Filtrar Alumno por DNI:</label>
+            <input type="text" id="filtroDni" placeholder="Ingresa el DNI del alumno">
+            <button type="button" id="btnFiltrarAlumnos">Buscar Alumno</button>
         </div>
 
         <div>
@@ -78,10 +85,10 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Aquí se cargarán las asignaciones -->
         </tbody>
     </table>
 
-    <script src="../js/asignaciones_alumnos.js"></script> <!-- Lógica JS -->
+    <script src="../js/asignaciones_alumnos.js"></script>
+    <script src="../js/header.js"></script>
 </body>
 </html>

@@ -1,0 +1,163 @@
+/* Cuerpo y configuraciones generales */
+body {
+    font-family: "Segoe UI", sans-serif;
+    background-color: #F1D5D5;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor general del formulario sin el recuadro blanco */
+.form-container {
+    width: 80%;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: none;  /* Eliminamos la sombra */
+    background-color: transparent;  /* Fondo transparente */
+    border: none;  /* Eliminamos cualquier borde */
+}
+
+/* Estilo de los encabezados */
+h1, h2 {
+    color: #4CAF50;
+    text-align: center;
+}
+
+/* Estilo para el título principal */
+h1 {
+    margin-bottom: 40px;
+}
+
+/* Estilo para los títulos dentro de la sección */
+h2 {
+    margin-top: 30px;
+}
+
+/* Alineación de los campos y labels */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo de los inputs */
+.input-group input {
+    width: 100%;
+    max-width: 380px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: #f9f9f9;
+}
+
+/* Efecto al hacer foco en los inputs */
+.input-group input:focus {
+    border-color: #4CAF50;
+    outline: none;
+    background-color: #fff;
+}
+
+/* Estilo de los botones */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 20px;
+    align-self: flex-end;
+    transition: background-color 0.3s;
+}
+
+/* Efecto al pasar el mouse sobre el botón */
+button:hover {
+    background-color: #45a049;
+}
+
+/* Estilo para los mensajes de error y éxito */
+.error-message, .success-message {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.error-message {
+    background-color: #f44336;
+    color: white;
+}
+
+.success-message {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Estilo de la tabla */
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    background-color: transparent; /* Fondo transparente en la tabla */
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 16px;
+    border: none; /* Eliminamos cualquier borde en la tabla */
+}
+
+/* Encabezados de la tabla */
+th {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+/* Celdas de la tabla */
+td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Efecto de hover en las filas de la tabla */
+tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+/* Estilo de las acciones en las filas */
+button[type="submit"] {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Efecto de hover sobre el botón eliminar */
+button[type="submit"]:hover {
+    background-color: #d32f2f;
+}
+
+/* Estilo para los separadores entre formularios */
+hr {
+    margin: 30px 0;
+    border: 0;
+    border-top: 1px solid #ddd;
+}
+
+/* Asegurarnos que no haya bordes extra en el cuerpo, tablas, y celdas */
+table, td, th {
+    border: none;
+}
